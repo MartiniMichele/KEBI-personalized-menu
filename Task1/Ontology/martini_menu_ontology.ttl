@@ -1,0 +1,935 @@
+@prefix : <http://www.semanticweb.org/michele.martini/kebi2025#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@base <http://www.semanticweb.org/michele.martini/kebi2025> .
+
+<http://www.semanticweb.org/michele.martini/kebi2025> rdf:type owl:Ontology .
+
+#################################################################
+#    Annotation properties
+#################################################################
+
+###  http://swrl.stanford.edu/ontologies/3.3/swrla.owl#isRuleEnabled
+<http://swrl.stanford.edu/ontologies/3.3/swrla.owl#isRuleEnabled> rdf:type owl:AnnotationProperty .
+
+
+###  http://www.semanticweb.org/michele.martini/kebi2025#thing_hasName
+:thing_hasName rdf:type owl:AnnotationProperty .
+
+
+###  http://www.semanticweb.org/michele.martini/kebi2025#meal_hasCourse
+<http://www.semanticweb.org/michele.martini/kebi2025#meal_hasCourse> rdf:type owl:AnnotationProperty .
+
+
+#################################################################
+#    Object Properties
+#################################################################
+
+###  http://www.semanticweb.org/michele.martini/kebi2025#meal_hasCourse
+:meal_hasCourse rdf:type owl:ObjectProperty ;
+                rdfs:domain <http://www.semanticweb.org/michele.martini/kebi2025#Meal> ;
+                rdfs:range :Course .
+
+
+###  http://www.semanticweb.org/michele.martini/kebi2025#dairy_containsLactoseIntolerance
+<http://www.semanticweb.org/michele.martini/kebi2025#dairy_containsLactoseIntolerance> rdf:type owl:ObjectProperty ;
+                                                                                rdfs:domain <http://www.semanticweb.org/michele.martini/kebi2025#Dairy> ;
+                                                                                rdfs:range <http://www.semanticweb.org/michele.martini/kebi2025#Lactose> .
+
+
+###  http://www.semanticweb.org/michele.martini/kebi2025#food_hasCategory
+<http://www.semanticweb.org/michele.martini/kebi2025#food_hasCategory> rdf:type owl:ObjectProperty ;
+                                                                rdfs:domain <http://www.semanticweb.org/michele.martini/kebi2025#Food> ;
+                                                                rdfs:range <http://www.semanticweb.org/michele.martini/kebi2025#Category> .
+
+
+###  http://www.semanticweb.org/michele.martini/kebi2025#grain_containsGlutenIntolerance
+<http://www.semanticweb.org/michele.martini/kebi2025#grain_containsGlutenIntolerance> rdf:type owl:ObjectProperty ;
+                                                                               rdfs:domain <http://www.semanticweb.org/michele.martini/kebi2025#Grain> ;
+                                                                               rdfs:range <http://www.semanticweb.org/michele.martini/kebi2025#Gluten> .
+
+
+###  http://www.semanticweb.org/michele.martini/kebi2025#guest_canEat
+<http://www.semanticweb.org/michele.martini/kebi2025#guest_canEat> rdf:type owl:ObjectProperty ;
+                                                            rdfs:domain <http://www.semanticweb.org/michele.martini/kebi2025#Guest> ;
+                                                            rdfs:range <http://www.semanticweb.org/michele.martini/kebi2025#Meal> .
+
+
+###  http://www.semanticweb.org/michele.martini/kebi2025#guest_hasAllergy
+<http://www.semanticweb.org/michele.martini/kebi2025#guest_hasAllergy> rdf:type owl:ObjectProperty ;
+                                                                rdfs:domain <http://www.semanticweb.org/michele.martini/kebi2025#Guest> ;
+                                                                rdfs:range <http://www.semanticweb.org/michele.martini/kebi2025#Allergy> .
+
+
+###  http://www.semanticweb.org/michele.martini/kebi2025#guest_hasCategory
+<http://www.semanticweb.org/michele.martini/kebi2025#guest_hasCategory> rdf:type owl:ObjectProperty ;
+                                                                 rdfs:domain <http://www.semanticweb.org/michele.martini/kebi2025#Guest> ;
+                                                                 rdfs:range <http://www.semanticweb.org/michele.martini/kebi2025#Category> .
+
+
+###  http://www.semanticweb.org/michele.martini/kebi2025#guest_hasPreferenceCourse
+<http://www.semanticweb.org/michele.martini/kebi2025#guest_hasPreferenceCourse> rdf:type owl:ObjectProperty ;
+                                                                         rdfs:domain <http://www.semanticweb.org/michele.martini/kebi2025#Guest> ;
+                                                                         rdfs:range :Course .
+
+
+###  http://www.semanticweb.org/michele.martini/kebi2025#guest_isAtRiskForFood
+<http://www.semanticweb.org/michele.martini/kebi2025#guest_isAtRiskForFood> rdf:type owl:ObjectProperty ;
+                                                                     rdfs:domain <http://www.semanticweb.org/michele.martini/kebi2025#Guest> ;
+                                                                     rdfs:range <http://www.semanticweb.org/michele.martini/kebi2025#Meal> .
+
+
+###  http://www.semanticweb.org/michele.martini/kebi2025#meal_containsGlutenIntolerance
+<http://www.semanticweb.org/michele.martini/kebi2025#meal_containsGlutenIntolerance> rdf:type owl:ObjectProperty ;
+                                                                              rdfs:subPropertyOf owl:topObjectProperty ;
+                                                                              rdfs:domain <http://www.semanticweb.org/michele.martini/kebi2025#Meal> ;
+                                                                              rdfs:range <http://www.semanticweb.org/michele.martini/kebi2025#Gluten> .
+
+
+###  http://www.semanticweb.org/michele.martini/kebi2025#meal_containsLactoseIntolerance
+<http://www.semanticweb.org/michele.martini/kebi2025#meal_containsLactoseIntolerance> rdf:type owl:ObjectProperty ;
+                                                                               rdfs:domain <http://www.semanticweb.org/michele.martini/kebi2025#Meal> ;
+                                                                               rdfs:range <http://www.semanticweb.org/michele.martini/kebi2025#Lactose> .
+
+
+###  http://www.semanticweb.org/michele.martini/kebi2025#meal_hasIngredient
+<http://www.semanticweb.org/michele.martini/kebi2025#meal_hasIngredient> rdf:type owl:ObjectProperty ;
+                                                                  rdfs:domain <http://www.semanticweb.org/michele.martini/kebi2025#Meal> ;
+                                                                  rdfs:range <http://www.semanticweb.org/michele.martini/kebi2025#Ingredient> .
+
+
+###  http://www.semanticweb.org/michele.martini/kebi2025#meal_notContainsGlutenIntolerance
+<http://www.semanticweb.org/michele.martini/kebi2025#meal_notContainsGlutenIntolerance> rdf:type owl:ObjectProperty ;
+                                                                                 rdfs:domain <http://www.semanticweb.org/michele.martini/kebi2025#Meal> ;
+                                                                                 rdfs:range <http://www.semanticweb.org/michele.martini/kebi2025#Gluten> .
+
+
+###  http://www.semanticweb.org/michele.martini/kebi2025#meal_notContainsLactoseIntolerance
+<http://www.semanticweb.org/michele.martini/kebi2025#meal_notContainsLactoseIntolerance> rdf:type owl:ObjectProperty ;
+                                                                                  rdfs:domain <http://www.semanticweb.org/michele.martini/kebi2025#Meal> ;
+                                                                                  rdfs:range <http://www.semanticweb.org/michele.martini/kebi2025#Lactose> .
+
+
+###  http://www.semanticweb.org/michele.martini/kebi2025#menu_containsMeal
+<http://www.semanticweb.org/michele.martini/kebi2025#menu_containsMeal> rdf:type owl:ObjectProperty ;
+                                                                 rdfs:domain <http://www.semanticweb.org/michele.martini/kebi2025#Menu> ;
+                                                                 rdfs:range <http://www.semanticweb.org/michele.martini/kebi2025#Meal> .
+
+
+###  http://www.semanticweb.org/michele.martini/kebi2025#restaurant_hasGuest
+<http://www.semanticweb.org/michele.martini/kebi2025#restaurant_hasGuest> rdf:type owl:ObjectProperty ;
+                                                                   rdfs:domain <http://www.semanticweb.org/michele.martini/kebi2025#Restaurant> ;
+                                                                   rdfs:range <http://www.semanticweb.org/michele.martini/kebi2025#Guest> .
+
+
+###  http://www.semanticweb.org/michele.martini/kebi2025#restaurant_hasMenu
+<http://www.semanticweb.org/michele.martini/kebi2025#restaurant_hasMenu> rdf:type owl:ObjectProperty ;
+                                                                  rdfs:domain <http://www.semanticweb.org/michele.martini/kebi2025#Restaurant> ;
+                                                                  rdfs:range <http://www.semanticweb.org/michele.martini/kebi2025#Menu> .
+
+
+#################################################################
+#    Data properties
+#################################################################
+
+###  http://www.semanticweb.org/michele.martini/kebi2025#food_hasKcal
+<http://www.semanticweb.org/michele.martini/kebi2025#food_hasKcal> rdf:type owl:DatatypeProperty ;
+                                                            rdfs:domain <http://www.semanticweb.org/michele.martini/kebi2025#Food> ;
+                                                            rdfs:range xsd:integer .
+
+
+###  http://www.semanticweb.org/michele.martini/kebi2025#guest_hasLevelOfCalorieConscious
+<http://www.semanticweb.org/michele.martini/kebi2025#guest_hasLevelOfCalorieConscious> rdf:type owl:DatatypeProperty ;
+                                                                                rdfs:domain <http://www.semanticweb.org/michele.martini/kebi2025#Guest> ;
+                                                                                rdfs:range [ rdf:type rdfs:Datatype ;
+                                                                                             owl:onDatatype xsd:integer ;
+                                                                                             owl:withRestrictions ( [ xsd:minInclusive 0
+                                                                                                                    ]
+                                                                                                                    [ xsd:maxInclusive 3
+                                                                                                                    ]
+                                                                                                                  )
+                                                                                           ] .
+
+
+###  http://www.semanticweb.org/michele.martini/kebi2025#meal_hasLevelOfCalorieConscious
+<http://www.semanticweb.org/michele.martini/kebi2025#meal_hasLevelOfCalorieConscious> rdf:type owl:DatatypeProperty ;
+                                                                               rdfs:domain <http://www.semanticweb.org/michele.martini/kebi2025#Meal> ;
+                                                                               rdfs:range [ rdf:type rdfs:Datatype ;
+                                                                                            owl:onDatatype xsd:integer ;
+                                                                                            owl:withRestrictions ( [ xsd:minInclusive 0
+                                                                                                                   ]
+                                                                                                                   [ xsd:maxInclusive 3
+                                                                                                                   ]
+                                                                                                                 )
+                                                                                          ] .
+
+
+###  http://www.semanticweb.org/michele.martini/kebi2025#thing_hasName
+<http://www.semanticweb.org/michele.martini/kebi2025#thing_hasName> rdf:type owl:DatatypeProperty ;
+                                                             rdfs:subPropertyOf owl:topDataProperty ;
+                                                             rdfs:domain owl:Thing ;
+                                                             rdfs:range xsd:string .
+
+
+#################################################################
+#    Classes
+#################################################################
+
+###  http://www.semanticweb.org/michele.martini/kebi2025#Course
+:Course rdf:type owl:Class .
+
+
+###  http://www.semanticweb.org/michele.martini/kebi2025#Allergy
+<http://www.semanticweb.org/michele.martini/kebi2025#Allergy> rdf:type owl:Class .
+
+
+###  http://www.semanticweb.org/michele.martini/kebi2025#AnimalOriginProduct
+<http://www.semanticweb.org/michele.martini/kebi2025#AnimalOriginProduct> rdf:type owl:Class ;
+                                                                   rdfs:subClassOf <http://www.semanticweb.org/michele.martini/kebi2025#Ingredient> .
+
+
+###  http://www.semanticweb.org/michele.martini/kebi2025#Category
+<http://www.semanticweb.org/michele.martini/kebi2025#Category> rdf:type owl:Class .
+
+
+###  http://www.semanticweb.org/michele.martini/kebi2025#Cereals
+<http://www.semanticweb.org/michele.martini/kebi2025#Cereals> rdf:type owl:Class ;
+                                                       rdfs:subClassOf <http://www.semanticweb.org/michele.martini/kebi2025#Ingredient> .
+
+
+###  http://www.semanticweb.org/michele.martini/kebi2025#Dairy
+<http://www.semanticweb.org/michele.martini/kebi2025#Dairy> rdf:type owl:Class ;
+                                                     rdfs:subClassOf <http://www.semanticweb.org/michele.martini/kebi2025#Ingredient> .
+
+
+###  http://www.semanticweb.org/michele.martini/kebi2025#Food
+<http://www.semanticweb.org/michele.martini/kebi2025#Food> rdf:type owl:Class .
+
+
+###  http://www.semanticweb.org/michele.martini/kebi2025#Fruit
+<http://www.semanticweb.org/michele.martini/kebi2025#Fruit> rdf:type owl:Class ;
+                                                     rdfs:subClassOf <http://www.semanticweb.org/michele.martini/kebi2025#Ingredient> .
+
+
+###  http://www.semanticweb.org/michele.martini/kebi2025#Gluten
+<http://www.semanticweb.org/michele.martini/kebi2025#Gluten> rdf:type owl:Class ;
+                                                      rdfs:subClassOf <http://www.semanticweb.org/michele.martini/kebi2025#Allergy> .
+
+
+###  http://www.semanticweb.org/michele.martini/kebi2025#Grain
+<http://www.semanticweb.org/michele.martini/kebi2025#Grain> rdf:type owl:Class ;
+                                                     rdfs:subClassOf <http://www.semanticweb.org/michele.martini/kebi2025#Ingredient> .
+
+
+###  http://www.semanticweb.org/michele.martini/kebi2025#Guest
+<http://www.semanticweb.org/michele.martini/kebi2025#Guest> rdf:type owl:Class .
+
+
+###  http://www.semanticweb.org/michele.martini/kebi2025#Ingredient
+<http://www.semanticweb.org/michele.martini/kebi2025#Ingredient> rdf:type owl:Class ;
+                                                          rdfs:subClassOf <http://www.semanticweb.org/michele.martini/kebi2025#Food> .
+
+
+###  http://www.semanticweb.org/michele.martini/kebi2025#Lactose
+<http://www.semanticweb.org/michele.martini/kebi2025#Lactose> rdf:type owl:Class ;
+                                                       rdfs:subClassOf <http://www.semanticweb.org/michele.martini/kebi2025#Allergy> .
+
+
+###  http://www.semanticweb.org/michele.martini/kebi2025#Meal
+<http://www.semanticweb.org/michele.martini/kebi2025#Meal> rdf:type owl:Class ;
+                                                    rdfs:subClassOf <http://www.semanticweb.org/michele.martini/kebi2025#Food> .
+
+
+###  http://www.semanticweb.org/michele.martini/kebi2025#Meat
+<http://www.semanticweb.org/michele.martini/kebi2025#Meat> rdf:type owl:Class ;
+                                                    rdfs:subClassOf <http://www.semanticweb.org/michele.martini/kebi2025#Ingredient> .
+
+
+###  http://www.semanticweb.org/michele.martini/kebi2025#Menu
+<http://www.semanticweb.org/michele.martini/kebi2025#Menu> rdf:type owl:Class .
+
+
+###  http://www.semanticweb.org/michele.martini/kebi2025#Restaurant
+<http://www.semanticweb.org/michele.martini/kebi2025#Restaurant> rdf:type owl:Class .
+
+
+###  http://www.semanticweb.org/michele.martini/kebi2025#Seafood
+<http://www.semanticweb.org/michele.martini/kebi2025#Seafood> rdf:type owl:Class ;
+                                                       rdfs:subClassOf <http://www.semanticweb.org/michele.martini/kebi2025#Ingredient> .
+
+
+###  http://www.semanticweb.org/michele.martini/kebi2025#Seasoning
+<http://www.semanticweb.org/michele.martini/kebi2025#Seasoning> rdf:type owl:Class ;
+                                                         rdfs:subClassOf <http://www.semanticweb.org/michele.martini/kebi2025#Ingredient> .
+
+
+###  http://www.semanticweb.org/michele.martini/kebi2025#Tuber
+<http://www.semanticweb.org/michele.martini/kebi2025#Tuber> rdf:type owl:Class ;
+                                                     rdfs:subClassOf <http://www.semanticweb.org/michele.martini/kebi2025#Ingredient> .
+
+
+###  http://www.semanticweb.org/michele.martini/kebi2025#Vegetable
+<http://www.semanticweb.org/michele.martini/kebi2025#Vegetable> rdf:type owl:Class ;
+                                                         rdfs:subClassOf <http://www.semanticweb.org/michele.martini/kebi2025#Ingredient> .
+
+
+###  http://www.semanticweb.org/michele.martini/kebi2025#VegetableOriginProduct
+<http://www.semanticweb.org/michele.martini/kebi2025#VegetableOriginProduct> rdf:type owl:Class ;
+                                                                      rdfs:subClassOf <http://www.semanticweb.org/michele.martini/kebi2025#Ingredient> .
+
+
+#################################################################
+#    Individuals
+#################################################################
+
+###  http://www.semanticweb.org/michele.martini/kebi2025#course_dessert
+:course_dessert rdf:type owl:NamedIndividual ,
+                         :Course ;
+                <http://www.semanticweb.org/michele.martini/kebi2025#thing_hasName> "Dessert" ;
+                :thing_hasName "Dessert" .
+
+
+###  http://www.semanticweb.org/michele.martini/kebi2025#course_first-dish
+:course_first-dish rdf:type owl:NamedIndividual ,
+                            :Course ;
+                   <http://www.semanticweb.org/michele.martini/kebi2025#thing_hasName> "First Dish" ;
+                   :thing_hasName "First Dish" .
+
+
+###  http://www.semanticweb.org/michele.martini/kebi2025#course_second-dish
+:course_second-dish rdf:type owl:NamedIndividual ,
+                             :Course ;
+                    <http://www.semanticweb.org/michele.martini/kebi2025#thing_hasName> "Second Dish" ;
+                    :thing_hasName "Second Dish" .
+
+
+###  http://www.semanticweb.org/michele.martini/kebi2025#course_sidedish
+:course_sidedish rdf:type owl:NamedIndividual ,
+                          :Course ;
+                 <http://www.semanticweb.org/michele.martini/kebi2025#thing_hasName> "Side Dish" ;
+                 :thing_hasName "Sidedish" .
+
+
+###  http://www.semanticweb.org/michele.martini/kebi2025#allergy_gluten
+<http://www.semanticweb.org/michele.martini/kebi2025#allergy_gluten> rdf:type owl:NamedIndividual ,
+                                                                       <http://www.semanticweb.org/michele.martini/kebi2025#Gluten> ;
+                                                              <http://www.semanticweb.org/michele.martini/kebi2025#thing_hasName> "Gluten" .
+
+
+###  http://www.semanticweb.org/michele.martini/kebi2025#allergy_lactose
+<http://www.semanticweb.org/michele.martini/kebi2025#allergy_lactose> rdf:type owl:NamedIndividual ,
+                                                                        <http://www.semanticweb.org/michele.martini/kebi2025#Lactose> ;
+                                                               <http://www.semanticweb.org/michele.martini/kebi2025#thing_hasName> "Lactose" .
+
+
+###  http://www.semanticweb.org/michele.martini/kebi2025#category_carnivorous
+<http://www.semanticweb.org/michele.martini/kebi2025#category_carnivorous> rdf:type owl:NamedIndividual ,
+                                                                             <http://www.semanticweb.org/michele.martini/kebi2025#Category> ;
+                                                                    <http://www.semanticweb.org/michele.martini/kebi2025#thing_hasName> "Carnivorous" .
+
+
+###  http://www.semanticweb.org/michele.martini/kebi2025#category_omnivore
+<http://www.semanticweb.org/michele.martini/kebi2025#category_omnivore> rdf:type owl:NamedIndividual ,
+                                                                          <http://www.semanticweb.org/michele.martini/kebi2025#Category> ;
+                                                                 <http://www.semanticweb.org/michele.martini/kebi2025#thing_hasName> "Omnivore" .
+
+
+###  http://www.semanticweb.org/michele.martini/kebi2025#category_vegetarian
+<http://www.semanticweb.org/michele.martini/kebi2025#category_vegetarian> rdf:type owl:NamedIndividual ,
+                                                                            <http://www.semanticweb.org/michele.martini/kebi2025#Category> ;
+                                                                   <http://www.semanticweb.org/michele.martini/kebi2025#thing_hasName> "Vegetarian" .
+
+
+###  http://www.semanticweb.org/michele.martini/kebi2025#guest_guest1
+<http://www.semanticweb.org/michele.martini/kebi2025#guest_guest1> rdf:type owl:NamedIndividual ,
+                                                                     <http://www.semanticweb.org/michele.martini/kebi2025#Guest> ;
+                                                            <http://www.semanticweb.org/michele.martini/kebi2025#guest_hasAllergy> <http://www.semanticweb.org/michele.martini/kebi2025#allergy_gluten> ;
+                                                            <http://www.semanticweb.org/michele.martini/kebi2025#guest_hasCategory> <http://www.semanticweb.org/michele.martini/kebi2025#category_carnivorous> ;
+                                                            <http://www.semanticweb.org/michele.martini/kebi2025#guest_hasPreferenceCourse> :course_first-dish ;
+                                                            <http://www.semanticweb.org/michele.martini/kebi2025#guest_hasLevelOfCalorieConscious> 0 ,
+                                                                                                                                            1 ;
+                                                            <http://www.semanticweb.org/michele.martini/kebi2025#thing_hasName> "Franco Zappa" .
+
+
+###  http://www.semanticweb.org/michele.martini/kebi2025#guest_guest2
+<http://www.semanticweb.org/michele.martini/kebi2025#guest_guest2> rdf:type owl:NamedIndividual ,
+                                                                     <http://www.semanticweb.org/michele.martini/kebi2025#Guest> ;
+                                                            <http://www.semanticweb.org/michele.martini/kebi2025#guest_hasAllergy> <http://www.semanticweb.org/michele.martini/kebi2025#allergy_lactose> ;
+                                                            <http://www.semanticweb.org/michele.martini/kebi2025#guest_hasCategory> <http://www.semanticweb.org/michele.martini/kebi2025#category_vegetarian> ;
+                                                            <http://www.semanticweb.org/michele.martini/kebi2025#guest_hasPreferenceCourse> :course_second-dish ;
+                                                            <http://www.semanticweb.org/michele.martini/kebi2025#guest_hasLevelOfCalorieConscious> 0 ;
+                                                            <http://www.semanticweb.org/michele.martini/kebi2025#thing_hasName> "Giovanni Rossi" .
+
+
+###  http://www.semanticweb.org/michele.martini/kebi2025#guest_guest3
+<http://www.semanticweb.org/michele.martini/kebi2025#guest_guest3> rdf:type owl:NamedIndividual ,
+                                                                     <http://www.semanticweb.org/michele.martini/kebi2025#Guest> ;
+                                                            <http://www.semanticweb.org/michele.martini/kebi2025#guest_hasAllergy> <http://www.semanticweb.org/michele.martini/kebi2025#allergy_gluten> ;
+                                                            <http://www.semanticweb.org/michele.martini/kebi2025#guest_hasCategory> <http://www.semanticweb.org/michele.martini/kebi2025#category_omnivore> ;
+                                                            <http://www.semanticweb.org/michele.martini/kebi2025#guest_hasPreferenceCourse> :course_sidedish ;
+                                                            <http://www.semanticweb.org/michele.martini/kebi2025#guest_hasLevelOfCalorieConscious> 0 ;
+                                                            <http://www.semanticweb.org/michele.martini/kebi2025#thing_hasName> "Lorenzo Flessoni" .
+
+
+###  http://www.semanticweb.org/michele.martini/kebi2025#ingredient_apricot
+<http://www.semanticweb.org/michele.martini/kebi2025#ingredient_apricot> rdf:type owl:NamedIndividual ,
+                                                                           <http://www.semanticweb.org/michele.martini/kebi2025#Fruit> ;
+                                                                  <http://www.semanticweb.org/michele.martini/kebi2025#food_hasCategory> <http://www.semanticweb.org/michele.martini/kebi2025#category_omnivore> ,
+                                                                                                                                  <http://www.semanticweb.org/michele.martini/kebi2025#category_vegetarian> ;
+                                                                  <http://www.semanticweb.org/michele.martini/kebi2025#food_hasKcal> 10 ;
+                                                                  <http://www.semanticweb.org/michele.martini/kebi2025#thing_hasName> "Apricot" .
+
+
+###  http://www.semanticweb.org/michele.martini/kebi2025#ingredient_beef-steak
+<http://www.semanticweb.org/michele.martini/kebi2025#ingredient_beef-steak> rdf:type owl:NamedIndividual ,
+                                                                              <http://www.semanticweb.org/michele.martini/kebi2025#Meat> ;
+                                                                     <http://www.semanticweb.org/michele.martini/kebi2025#food_hasCategory> <http://www.semanticweb.org/michele.martini/kebi2025#category_carnivorous> ,
+                                                                                                                                     <http://www.semanticweb.org/michele.martini/kebi2025#category_omnivore> ;
+                                                                     <http://www.semanticweb.org/michele.martini/kebi2025#food_hasKcal> 120 ;
+                                                                     <http://www.semanticweb.org/michele.martini/kebi2025#thing_hasName> "Beef Steak" .
+
+
+###  http://www.semanticweb.org/michele.martini/kebi2025#ingredient_breadcrumbs
+<http://www.semanticweb.org/michele.martini/kebi2025#ingredient_breadcrumbs> rdf:type owl:NamedIndividual ,
+                                                                               <http://www.semanticweb.org/michele.martini/kebi2025#Grain> ;
+                                                                      <http://www.semanticweb.org/michele.martini/kebi2025#food_hasCategory> <http://www.semanticweb.org/michele.martini/kebi2025#category_carnivorous> ,
+                                                                                                                                      <http://www.semanticweb.org/michele.martini/kebi2025#category_omnivore> ,
+                                                                                                                                      <http://www.semanticweb.org/michele.martini/kebi2025#category_vegetarian> ;
+                                                                      <http://www.semanticweb.org/michele.martini/kebi2025#grain_containsGlutenIntolerance> <http://www.semanticweb.org/michele.martini/kebi2025#allergy_gluten> ;
+                                                                      <http://www.semanticweb.org/michele.martini/kebi2025#food_hasKcal> 160 ;
+                                                                      <http://www.semanticweb.org/michele.martini/kebi2025#thing_hasName> "Breadcrumbs" .
+
+
+###  http://www.semanticweb.org/michele.martini/kebi2025#ingredient_butter
+<http://www.semanticweb.org/michele.martini/kebi2025#ingredient_butter> rdf:type owl:NamedIndividual ,
+                                                                          <http://www.semanticweb.org/michele.martini/kebi2025#Seasoning> ;
+                                                                 <http://www.semanticweb.org/michele.martini/kebi2025#food_hasCategory> <http://www.semanticweb.org/michele.martini/kebi2025#category_carnivorous> ,
+                                                                                                                                 <http://www.semanticweb.org/michele.martini/kebi2025#category_omnivore> ,
+                                                                                                                                 <http://www.semanticweb.org/michele.martini/kebi2025#category_vegetarian> ;
+                                                                 <http://www.semanticweb.org/michele.martini/kebi2025#food_hasKcal> 220 ;
+                                                                 <http://www.semanticweb.org/michele.martini/kebi2025#thing_hasName> "Butter" .
+
+
+###  http://www.semanticweb.org/michele.martini/kebi2025#ingredient_courgette
+<http://www.semanticweb.org/michele.martini/kebi2025#ingredient_courgette> rdf:type owl:NamedIndividual ,
+                                                                             <http://www.semanticweb.org/michele.martini/kebi2025#Vegetable> ;
+                                                                    <http://www.semanticweb.org/michele.martini/kebi2025#food_hasCategory> <http://www.semanticweb.org/michele.martini/kebi2025#category_omnivore> ,
+                                                                                                                                    <http://www.semanticweb.org/michele.martini/kebi2025#category_vegetarian> ;
+                                                                    <http://www.semanticweb.org/michele.martini/kebi2025#food_hasKcal> 10 ;
+                                                                    <http://www.semanticweb.org/michele.martini/kebi2025#thing_hasName> "Courgette" .
+
+
+###  http://www.semanticweb.org/michele.martini/kebi2025#ingredient_egg
+<http://www.semanticweb.org/michele.martini/kebi2025#ingredient_egg> rdf:type owl:NamedIndividual ,
+                                                                       <http://www.semanticweb.org/michele.martini/kebi2025#AnimalOriginProduct> ;
+                                                              <http://www.semanticweb.org/michele.martini/kebi2025#food_hasCategory> <http://www.semanticweb.org/michele.martini/kebi2025#category_carnivorous> ,
+                                                                                                                              <http://www.semanticweb.org/michele.martini/kebi2025#category_omnivore> ,
+                                                                                                                              <http://www.semanticweb.org/michele.martini/kebi2025#category_vegetarian> ;
+                                                              <http://www.semanticweb.org/michele.martini/kebi2025#food_hasKcal> 80 ;
+                                                              <http://www.semanticweb.org/michele.martini/kebi2025#thing_hasName> "Egg" .
+
+
+###  http://www.semanticweb.org/michele.martini/kebi2025#ingredient_eggplant
+<http://www.semanticweb.org/michele.martini/kebi2025#ingredient_eggplant> rdf:type owl:NamedIndividual ,
+                                                                            <http://www.semanticweb.org/michele.martini/kebi2025#Vegetable> ;
+                                                                   <http://www.semanticweb.org/michele.martini/kebi2025#food_hasCategory> <http://www.semanticweb.org/michele.martini/kebi2025#category_omnivore> ,
+                                                                                                                                   <http://www.semanticweb.org/michele.martini/kebi2025#category_vegetarian> ;
+                                                                   <http://www.semanticweb.org/michele.martini/kebi2025#food_hasKcal> 10 ;
+                                                                   <http://www.semanticweb.org/michele.martini/kebi2025#thing_hasName> "Eggplant" .
+
+
+###  http://www.semanticweb.org/michele.martini/kebi2025#ingredient_lettuce
+<http://www.semanticweb.org/michele.martini/kebi2025#ingredient_lettuce> rdf:type owl:NamedIndividual ,
+                                                                           <http://www.semanticweb.org/michele.martini/kebi2025#Vegetable> ;
+                                                                  <http://www.semanticweb.org/michele.martini/kebi2025#food_hasCategory> <http://www.semanticweb.org/michele.martini/kebi2025#category_omnivore> ,
+                                                                                                                                  <http://www.semanticweb.org/michele.martini/kebi2025#category_vegetarian> ;
+                                                                  <http://www.semanticweb.org/michele.martini/kebi2025#food_hasKcal> 10 ;
+                                                                  <http://www.semanticweb.org/michele.martini/kebi2025#thing_hasName> "Lettuce" .
+
+
+###  http://www.semanticweb.org/michele.martini/kebi2025#ingredient_mozzarella
+<http://www.semanticweb.org/michele.martini/kebi2025#ingredient_mozzarella> rdf:type owl:NamedIndividual ,
+                                                                              <http://www.semanticweb.org/michele.martini/kebi2025#Dairy> ;
+                                                                     <http://www.semanticweb.org/michele.martini/kebi2025#dairy_containsLactoseIntolerance> <http://www.semanticweb.org/michele.martini/kebi2025#allergy_lactose> ;
+                                                                     <http://www.semanticweb.org/michele.martini/kebi2025#food_hasCategory> <http://www.semanticweb.org/michele.martini/kebi2025#category_carnivorous> ,
+                                                                                                                                     <http://www.semanticweb.org/michele.martini/kebi2025#category_omnivore> ,
+                                                                                                                                     <http://www.semanticweb.org/michele.martini/kebi2025#category_vegetarian> ;
+                                                                     <http://www.semanticweb.org/michele.martini/kebi2025#food_hasKcal> 130 ;
+                                                                     <http://www.semanticweb.org/michele.martini/kebi2025#thing_hasName> "Mozzarella" .
+
+
+###  http://www.semanticweb.org/michele.martini/kebi2025#ingredient_parmigiano
+<http://www.semanticweb.org/michele.martini/kebi2025#ingredient_parmigiano> rdf:type owl:NamedIndividual ,
+                                                                              <http://www.semanticweb.org/michele.martini/kebi2025#Dairy> ;
+                                                                     <http://www.semanticweb.org/michele.martini/kebi2025#dairy_containsLactoseIntolerance> <http://www.semanticweb.org/michele.martini/kebi2025#allergy_lactose> ;
+                                                                     <http://www.semanticweb.org/michele.martini/kebi2025#food_hasCategory> <http://www.semanticweb.org/michele.martini/kebi2025#category_carnivorous> ,
+                                                                                                                                     <http://www.semanticweb.org/michele.martini/kebi2025#category_omnivore> ,
+                                                                                                                                     <http://www.semanticweb.org/michele.martini/kebi2025#category_vegetarian> ;
+                                                                     <http://www.semanticweb.org/michele.martini/kebi2025#food_hasKcal> 190 ;
+                                                                     <http://www.semanticweb.org/michele.martini/kebi2025#thing_hasName> "Parmigiano" .
+
+
+###  http://www.semanticweb.org/michele.martini/kebi2025#ingredient_pasta
+<http://www.semanticweb.org/michele.martini/kebi2025#ingredient_pasta> rdf:type owl:NamedIndividual ,
+                                                                         <http://www.semanticweb.org/michele.martini/kebi2025#Grain> ;
+                                                                <http://www.semanticweb.org/michele.martini/kebi2025#food_hasCategory> <http://www.semanticweb.org/michele.martini/kebi2025#category_carnivorous> ,
+                                                                                                                                <http://www.semanticweb.org/michele.martini/kebi2025#category_omnivore> ,
+                                                                                                                                <http://www.semanticweb.org/michele.martini/kebi2025#category_vegetarian> ;
+                                                                <http://www.semanticweb.org/michele.martini/kebi2025#grain_containsGlutenIntolerance> <http://www.semanticweb.org/michele.martini/kebi2025#allergy_gluten> ;
+                                                                <http://www.semanticweb.org/michele.martini/kebi2025#food_hasKcal> 180 ;
+                                                                <http://www.semanticweb.org/michele.martini/kebi2025#thing_hasName> "Pasta" .
+
+
+###  http://www.semanticweb.org/michele.martini/kebi2025#ingredient_peach
+<http://www.semanticweb.org/michele.martini/kebi2025#ingredient_peach> rdf:type owl:NamedIndividual ,
+                                                                         <http://www.semanticweb.org/michele.martini/kebi2025#Fruit> ;
+                                                                <http://www.semanticweb.org/michele.martini/kebi2025#food_hasCategory> <http://www.semanticweb.org/michele.martini/kebi2025#category_omnivore> ,
+                                                                                                                                <http://www.semanticweb.org/michele.martini/kebi2025#category_vegetarian> ;
+                                                                <http://www.semanticweb.org/michele.martini/kebi2025#food_hasKcal> 10 ;
+                                                                <http://www.semanticweb.org/michele.martini/kebi2025#thing_hasName> "Peach" .
+
+
+###  http://www.semanticweb.org/michele.martini/kebi2025#ingredient_pecorino
+<http://www.semanticweb.org/michele.martini/kebi2025#ingredient_pecorino> rdf:type owl:NamedIndividual ,
+                                                                            <http://www.semanticweb.org/michele.martini/kebi2025#Dairy> ;
+                                                                   <http://www.semanticweb.org/michele.martini/kebi2025#dairy_containsLactoseIntolerance> <http://www.semanticweb.org/michele.martini/kebi2025#allergy_lactose> ;
+                                                                   <http://www.semanticweb.org/michele.martini/kebi2025#food_hasCategory> <http://www.semanticweb.org/michele.martini/kebi2025#category_carnivorous> ,
+                                                                                                                                   <http://www.semanticweb.org/michele.martini/kebi2025#category_omnivore> ,
+                                                                                                                                   <http://www.semanticweb.org/michele.martini/kebi2025#category_vegetarian> ;
+                                                                   <http://www.semanticweb.org/michele.martini/kebi2025#food_hasKcal> 190 ;
+                                                                   <http://www.semanticweb.org/michele.martini/kebi2025#thing_hasName> "Pecorino" .
+
+
+###  http://www.semanticweb.org/michele.martini/kebi2025#ingredient_pork-jowl
+<http://www.semanticweb.org/michele.martini/kebi2025#ingredient_pork-jowl> rdf:type owl:NamedIndividual ,
+                                                                             <http://www.semanticweb.org/michele.martini/kebi2025#Meat> ;
+                                                                    <http://www.semanticweb.org/michele.martini/kebi2025#food_hasCategory> <http://www.semanticweb.org/michele.martini/kebi2025#category_carnivorous> ,
+                                                                                                                                    <http://www.semanticweb.org/michele.martini/kebi2025#category_omnivore> ;
+                                                                    <http://www.semanticweb.org/michele.martini/kebi2025#food_hasKcal> 330 ;
+                                                                    <http://www.semanticweb.org/michele.martini/kebi2025#thing_hasName> "Pork Jowl" .
+
+
+###  http://www.semanticweb.org/michele.martini/kebi2025#ingredient_potato
+<http://www.semanticweb.org/michele.martini/kebi2025#ingredient_potato> rdf:type owl:NamedIndividual ,
+                                                                          <http://www.semanticweb.org/michele.martini/kebi2025#Tuber> ;
+                                                                 <http://www.semanticweb.org/michele.martini/kebi2025#food_hasCategory> <http://www.semanticweb.org/michele.martini/kebi2025#category_carnivorous> ,
+                                                                                                                                 <http://www.semanticweb.org/michele.martini/kebi2025#category_omnivore> ,
+                                                                                                                                 <http://www.semanticweb.org/michele.martini/kebi2025#category_vegetarian> ;
+                                                                 <http://www.semanticweb.org/michele.martini/kebi2025#food_hasKcal> 40 ;
+                                                                 <http://www.semanticweb.org/michele.martini/kebi2025#thing_hasName> "Potato" .
+
+
+###  http://www.semanticweb.org/michele.martini/kebi2025#ingredient_rice
+<http://www.semanticweb.org/michele.martini/kebi2025#ingredient_rice> rdf:type owl:NamedIndividual ,
+                                                                        <http://www.semanticweb.org/michele.martini/kebi2025#Cereals> ;
+                                                               <http://www.semanticweb.org/michele.martini/kebi2025#food_hasCategory> <http://www.semanticweb.org/michele.martini/kebi2025#category_carnivorous> ,
+                                                                                                                               <http://www.semanticweb.org/michele.martini/kebi2025#category_omnivore> ,
+                                                                                                                               <http://www.semanticweb.org/michele.martini/kebi2025#category_vegetarian> ;
+                                                               <http://www.semanticweb.org/michele.martini/kebi2025#food_hasKcal> 160 ;
+                                                               <http://www.semanticweb.org/michele.martini/kebi2025#thing_hasName> "Rice" .
+
+
+###  http://www.semanticweb.org/michele.martini/kebi2025#ingredient_sage
+<http://www.semanticweb.org/michele.martini/kebi2025#ingredient_sage> rdf:type owl:NamedIndividual ,
+                                                                        <http://www.semanticweb.org/michele.martini/kebi2025#Seasoning> ;
+                                                               <http://www.semanticweb.org/michele.martini/kebi2025#food_hasCategory> <http://www.semanticweb.org/michele.martini/kebi2025#category_carnivorous> ,
+                                                                                                                               <http://www.semanticweb.org/michele.martini/kebi2025#category_omnivore> ,
+                                                                                                                               <http://www.semanticweb.org/michele.martini/kebi2025#category_vegetarian> ;
+                                                               <http://www.semanticweb.org/michele.martini/kebi2025#food_hasKcal> 0 ;
+                                                               <http://www.semanticweb.org/michele.martini/kebi2025#thing_hasName> "Sage" .
+
+
+###  http://www.semanticweb.org/michele.martini/kebi2025#ingredient_shrimp
+<http://www.semanticweb.org/michele.martini/kebi2025#ingredient_shrimp> rdf:type owl:NamedIndividual ,
+                                                                          <http://www.semanticweb.org/michele.martini/kebi2025#Seafood> ;
+                                                                 <http://www.semanticweb.org/michele.martini/kebi2025#food_hasCategory> <http://www.semanticweb.org/michele.martini/kebi2025#category_carnivorous> ,
+                                                                                                                                 <http://www.semanticweb.org/michele.martini/kebi2025#category_omnivore> ;
+                                                                 <http://www.semanticweb.org/michele.martini/kebi2025#food_hasKcal> 45 ;
+                                                                 <http://www.semanticweb.org/michele.martini/kebi2025#thing_hasName> "Shrimp" .
+
+
+###  http://www.semanticweb.org/michele.martini/kebi2025#ingredient_tomato-puree
+<http://www.semanticweb.org/michele.martini/kebi2025#ingredient_tomato-puree> rdf:type owl:NamedIndividual ,
+                                                                                <http://www.semanticweb.org/michele.martini/kebi2025#VegetableOriginProduct> ;
+                                                                       <http://www.semanticweb.org/michele.martini/kebi2025#food_hasCategory> <http://www.semanticweb.org/michele.martini/kebi2025#category_omnivore> ,
+                                                                                                                                       <http://www.semanticweb.org/michele.martini/kebi2025#category_vegetarian> ;
+                                                                       <http://www.semanticweb.org/michele.martini/kebi2025#food_hasKcal> 10 ;
+                                                                       <http://www.semanticweb.org/michele.martini/kebi2025#thing_hasName> "Tomato Puree" .
+
+
+###  http://www.semanticweb.org/michele.martini/kebi2025#ingredient_watermelon
+<http://www.semanticweb.org/michele.martini/kebi2025#ingredient_watermelon> rdf:type owl:NamedIndividual ,
+                                                                              <http://www.semanticweb.org/michele.martini/kebi2025#Fruit> ;
+                                                                     <http://www.semanticweb.org/michele.martini/kebi2025#food_hasCategory> <http://www.semanticweb.org/michele.martini/kebi2025#category_omnivore> ,
+                                                                                                                                     <http://www.semanticweb.org/michele.martini/kebi2025#category_vegetarian> ;
+                                                                     <http://www.semanticweb.org/michele.martini/kebi2025#food_hasKcal> 10 ;
+                                                                     <http://www.semanticweb.org/michele.martini/kebi2025#thing_hasName> "Watermelon" .
+
+
+###  http://www.semanticweb.org/michele.martini/kebi2025#meal_bistecca-alla-fiorentina
+<http://www.semanticweb.org/michele.martini/kebi2025#meal_bistecca-alla-fiorentina> rdf:type owl:NamedIndividual ,
+                                                                                      <http://www.semanticweb.org/michele.martini/kebi2025#Meal> ;
+                                                                             :meal_hasCourse :course_second-dish ;
+                                                                             <http://www.semanticweb.org/michele.martini/kebi2025#food_hasCategory> <http://www.semanticweb.org/michele.martini/kebi2025#category_carnivorous> ,
+                                                                                                                                             <http://www.semanticweb.org/michele.martini/kebi2025#category_omnivore> ;
+                                                                             <http://www.semanticweb.org/michele.martini/kebi2025#meal_hasIngredient> <http://www.semanticweb.org/michele.martini/kebi2025#ingredient_beef-steak> ;
+                                                                             <http://www.semanticweb.org/michele.martini/kebi2025#meal_notContainsGlutenIntolerance> <http://www.semanticweb.org/michele.martini/kebi2025#allergy_gluten> ;
+                                                                             <http://www.semanticweb.org/michele.martini/kebi2025#meal_notContainsLactoseIntolerance> <http://www.semanticweb.org/michele.martini/kebi2025#allergy_lactose> ;
+                                                                             <http://www.semanticweb.org/michele.martini/kebi2025#food_hasKcal> 120 ;
+                                                                             <http://www.semanticweb.org/michele.martini/kebi2025#meal_hasLevelOfCalorieConscious> 0 ,
+                                                                                                                                                            1 ;
+                                                                             <http://www.semanticweb.org/michele.martini/kebi2025#thing_hasName> "Bistecca alla Fiorentina" ;
+                                                                             <http://www.semanticweb.org/michele.martini/kebi2025#meal_hasCourse> <http://www.semanticweb.org/michele.martini/kebi2025#course_second-dish> .
+
+
+###  http://www.semanticweb.org/michele.martini/kebi2025#meal_carbonara
+<http://www.semanticweb.org/michele.martini/kebi2025#meal_carbonara> rdf:type owl:NamedIndividual ,
+                                                                       <http://www.semanticweb.org/michele.martini/kebi2025#Meal> ;
+                                                              :meal_hasCourse :course_first-dish ;
+                                                              <http://www.semanticweb.org/michele.martini/kebi2025#food_hasCategory> <http://www.semanticweb.org/michele.martini/kebi2025#category_omnivore> ,
+                                                                                                                              <http://www.semanticweb.org/michele.martini/kebi2025#category_vegetarian> ;
+                                                              <http://www.semanticweb.org/michele.martini/kebi2025#meal_hasIngredient> <http://www.semanticweb.org/michele.martini/kebi2025#ingredient_egg> ,
+                                                                                                                                <http://www.semanticweb.org/michele.martini/kebi2025#ingredient_pasta> ,
+                                                                                                                                <http://www.semanticweb.org/michele.martini/kebi2025#ingredient_pecorino> ,
+                                                                                                                                <http://www.semanticweb.org/michele.martini/kebi2025#ingredient_pork-jowl> ;
+                                                              <http://www.semanticweb.org/michele.martini/kebi2025#meal_notContainsGlutenIntolerance> <http://www.semanticweb.org/michele.martini/kebi2025#allergy_gluten> ;
+                                                              <http://www.semanticweb.org/michele.martini/kebi2025#meal_notContainsLactoseIntolerance> <http://www.semanticweb.org/michele.martini/kebi2025#allergy_lactose> ;
+                                                              <http://www.semanticweb.org/michele.martini/kebi2025#food_hasKcal> 760 ;
+                                                              <http://www.semanticweb.org/michele.martini/kebi2025#meal_hasLevelOfCalorieConscious> 0 ;
+                                                              <http://www.semanticweb.org/michele.martini/kebi2025#thing_hasName> "Carbonara" ;
+                                                              <http://www.semanticweb.org/michele.martini/kebi2025#meal_hasCourse> <http://www.semanticweb.org/michele.martini/kebi2025#course_first-dish> .
+
+
+###  http://www.semanticweb.org/michele.martini/kebi2025#meal_insalata
+<http://www.semanticweb.org/michele.martini/kebi2025#meal_insalata> rdf:type owl:NamedIndividual ,
+                                                                      <http://www.semanticweb.org/michele.martini/kebi2025#Meal> ;
+                                                             :meal_hasCourse :course_sidedish ;
+                                                             <http://www.semanticweb.org/michele.martini/kebi2025#food_hasCategory> <http://www.semanticweb.org/michele.martini/kebi2025#category_omnivore> ,
+                                                                                                                             <http://www.semanticweb.org/michele.martini/kebi2025#category_vegetarian> ;
+                                                             <http://www.semanticweb.org/michele.martini/kebi2025#meal_hasIngredient> <http://www.semanticweb.org/michele.martini/kebi2025#ingredient_lettuce> ;
+                                                             <http://www.semanticweb.org/michele.martini/kebi2025#meal_notContainsGlutenIntolerance> <http://www.semanticweb.org/michele.martini/kebi2025#allergy_gluten> ;
+                                                             <http://www.semanticweb.org/michele.martini/kebi2025#meal_notContainsLactoseIntolerance> <http://www.semanticweb.org/michele.martini/kebi2025#allergy_lactose> ;
+                                                             <http://www.semanticweb.org/michele.martini/kebi2025#food_hasKcal> 10 ;
+                                                             <http://www.semanticweb.org/michele.martini/kebi2025#meal_hasLevelOfCalorieConscious> 0 ,
+                                                                                                                                            1 ;
+                                                             <http://www.semanticweb.org/michele.martini/kebi2025#thing_hasName> "Insalata" ;
+                                                             <http://www.semanticweb.org/michele.martini/kebi2025#meal_hasCourse> <http://www.semanticweb.org/michele.martini/kebi2025#course_side-dish> .
+
+
+###  http://www.semanticweb.org/michele.martini/kebi2025#meal_macedonia
+<http://www.semanticweb.org/michele.martini/kebi2025#meal_macedonia> rdf:type owl:NamedIndividual ,
+                                                                       <http://www.semanticweb.org/michele.martini/kebi2025#Meal> ;
+                                                              :meal_hasCourse :course_dessert ;
+                                                              <http://www.semanticweb.org/michele.martini/kebi2025#food_hasCategory> <http://www.semanticweb.org/michele.martini/kebi2025#category_omnivore> ,
+                                                                                                                              <http://www.semanticweb.org/michele.martini/kebi2025#category_vegetarian> ;
+                                                              <http://www.semanticweb.org/michele.martini/kebi2025#meal_hasIngredient> <http://www.semanticweb.org/michele.martini/kebi2025#ingredient_apricot> ,
+                                                                                                                                <http://www.semanticweb.org/michele.martini/kebi2025#ingredient_peach> ,
+                                                                                                                                <http://www.semanticweb.org/michele.martini/kebi2025#ingredient_watermelon> ;
+                                                              <http://www.semanticweb.org/michele.martini/kebi2025#meal_notContainsGlutenIntolerance> <http://www.semanticweb.org/michele.martini/kebi2025#allergy_gluten> ;
+                                                              <http://www.semanticweb.org/michele.martini/kebi2025#meal_notContainsLactoseIntolerance> <http://www.semanticweb.org/michele.martini/kebi2025#allergy_lactose> ;
+                                                              <http://www.semanticweb.org/michele.martini/kebi2025#food_hasKcal> 30 ;
+                                                              <http://www.semanticweb.org/michele.martini/kebi2025#meal_hasLevelOfCalorieConscious> 0 ,
+                                                                                                                                             1 ;
+                                                              <http://www.semanticweb.org/michele.martini/kebi2025#thing_hasName> "Macedonia" ;
+                                                              <http://www.semanticweb.org/michele.martini/kebi2025#meal_hasCourse> <http://www.semanticweb.org/michele.martini/kebi2025#course_dessert> .
+
+
+###  http://www.semanticweb.org/michele.martini/kebi2025#meal_parmigiana
+<http://www.semanticweb.org/michele.martini/kebi2025#meal_parmigiana> rdf:type owl:NamedIndividual ,
+                                                                        <http://www.semanticweb.org/michele.martini/kebi2025#Meal> ;
+                                                               :meal_hasCourse :course_second-dish ;
+                                                               <http://www.semanticweb.org/michele.martini/kebi2025#food_hasCategory> <http://www.semanticweb.org/michele.martini/kebi2025#category_omnivore> ,
+                                                                                                                               <http://www.semanticweb.org/michele.martini/kebi2025#category_vegetarian> ;
+                                                               <http://www.semanticweb.org/michele.martini/kebi2025#meal_hasIngredient> <http://www.semanticweb.org/michele.martini/kebi2025#ingredient_eggplant> ,
+                                                                                                                                 <http://www.semanticweb.org/michele.martini/kebi2025#ingredient_mozzarella> ,
+                                                                                                                                 <http://www.semanticweb.org/michele.martini/kebi2025#ingredient_parmigiano> ,
+                                                                                                                                 <http://www.semanticweb.org/michele.martini/kebi2025#ingredient_tomato-puree> ;
+                                                               <http://www.semanticweb.org/michele.martini/kebi2025#food_hasKcal> 340 ;
+                                                               <http://www.semanticweb.org/michele.martini/kebi2025#meal_hasLevelOfCalorieConscious> 0 ;
+                                                               <http://www.semanticweb.org/michele.martini/kebi2025#thing_hasName> "Parmigiana" ;
+                                                               <http://www.semanticweb.org/michele.martini/kebi2025#meal_hasCourse> <http://www.semanticweb.org/michele.martini/kebi2025#course_second-dish> .
+
+
+###  http://www.semanticweb.org/michele.martini/kebi2025#meal_pasta-burro-salvia
+<http://www.semanticweb.org/michele.martini/kebi2025#meal_pasta-burro-salvia> rdf:type owl:NamedIndividual ,
+                                                                                <http://www.semanticweb.org/michele.martini/kebi2025#Meal> ;
+                                                                       :meal_hasCourse :course_first-dish ;
+                                                                       <http://www.semanticweb.org/michele.martini/kebi2025#food_hasCategory> <http://www.semanticweb.org/michele.martini/kebi2025#category_carnivorous> ,
+                                                                                                                                       <http://www.semanticweb.org/michele.martini/kebi2025#category_omnivore> ;
+                                                                       <http://www.semanticweb.org/michele.martini/kebi2025#meal_notContainsGlutenIntolerance> <http://www.semanticweb.org/michele.martini/kebi2025#allergy_gluten> ;
+                                                                       <http://www.semanticweb.org/michele.martini/kebi2025#meal_notContainsLactoseIntolerance> <http://www.semanticweb.org/michele.martini/kebi2025#allergy_lactose> ;
+                                                                       <http://www.semanticweb.org/michele.martini/kebi2025#food_hasKcal> 400 ;
+                                                                       <http://www.semanticweb.org/michele.martini/kebi2025#meal_hasLevelOfCalorieConscious> 0 ;
+                                                                       <http://www.semanticweb.org/michele.martini/kebi2025#thing_hasName> "Pasta burro e salvia" ;
+                                                                       <http://www.semanticweb.org/michele.martini/kebi2025#meal_hasCourse> <http://www.semanticweb.org/michele.martini/kebi2025#course_first-dish> .
+
+
+###  http://www.semanticweb.org/michele.martini/kebi2025#meal_patate-forno
+<http://www.semanticweb.org/michele.martini/kebi2025#meal_patate-forno> rdf:type owl:NamedIndividual ,
+                                                                          <http://www.semanticweb.org/michele.martini/kebi2025#Meal> ;
+                                                                 :meal_hasCourse :course_sidedish ;
+                                                                 <http://www.semanticweb.org/michele.martini/kebi2025#food_hasCategory> <http://www.semanticweb.org/michele.martini/kebi2025#category_carnivorous> ,
+                                                                                                                                 <http://www.semanticweb.org/michele.martini/kebi2025#category_omnivore> ,
+                                                                                                                                 <http://www.semanticweb.org/michele.martini/kebi2025#category_vegetarian> ;
+                                                                 <http://www.semanticweb.org/michele.martini/kebi2025#meal_hasIngredient> <http://www.semanticweb.org/michele.martini/kebi2025#ingredient_potato> ;
+                                                                 <http://www.semanticweb.org/michele.martini/kebi2025#meal_notContainsLactoseIntolerance> <http://www.semanticweb.org/michele.martini/kebi2025#allergy_lactose> ;
+                                                                 <http://www.semanticweb.org/michele.martini/kebi2025#food_hasKcal> 40 ;
+                                                                 <http://www.semanticweb.org/michele.martini/kebi2025#meal_hasLevelOfCalorieConscious> 0 ,
+                                                                                                                                                1 ;
+                                                                 <http://www.semanticweb.org/michele.martini/kebi2025#thing_hasName> "Patate al forno" ;
+                                                                 <http://www.semanticweb.org/michele.martini/kebi2025#meal_hasCourse> <http://www.semanticweb.org/michele.martini/kebi2025#course_side-dish> .
+
+
+###  http://www.semanticweb.org/michele.martini/kebi2025#meal_polpette-zucchine
+<http://www.semanticweb.org/michele.martini/kebi2025#meal_polpette-zucchine> rdf:type owl:NamedIndividual ,
+                                                                               <http://www.semanticweb.org/michele.martini/kebi2025#Meal> ;
+                                                                      :meal_hasCourse :course_second-dish ;
+                                                                      <http://www.semanticweb.org/michele.martini/kebi2025#food_hasCategory> <http://www.semanticweb.org/michele.martini/kebi2025#category_omnivore> ,
+                                                                                                                                      <http://www.semanticweb.org/michele.martini/kebi2025#category_vegetarian> ;
+                                                                      <http://www.semanticweb.org/michele.martini/kebi2025#meal_hasIngredient> <http://www.semanticweb.org/michele.martini/kebi2025#ingredient_breadcrumbs> ,
+                                                                                                                                        <http://www.semanticweb.org/michele.martini/kebi2025#ingredient_courgette> ,
+                                                                                                                                        <http://www.semanticweb.org/michele.martini/kebi2025#ingredient_egg> ;
+                                                                      <http://www.semanticweb.org/michele.martini/kebi2025#meal_notContainsGlutenIntolerance> <http://www.semanticweb.org/michele.martini/kebi2025#allergy_gluten> ;
+                                                                      <http://www.semanticweb.org/michele.martini/kebi2025#meal_notContainsLactoseIntolerance> <http://www.semanticweb.org/michele.martini/kebi2025#allergy_lactose> ;
+                                                                      <http://www.semanticweb.org/michele.martini/kebi2025#food_hasKcal> 230 ;
+                                                                      <http://www.semanticweb.org/michele.martini/kebi2025#meal_hasLevelOfCalorieConscious> 0 ,
+                                                                                                                                                     1 ;
+                                                                      <http://www.semanticweb.org/michele.martini/kebi2025#thing_hasName> "Polpette di zucchine" ;
+                                                                      <http://www.semanticweb.org/michele.martini/kebi2025#meal_hasCourse> <http://www.semanticweb.org/michele.martini/kebi2025#course_second-dish> .
+
+
+###  http://www.semanticweb.org/michele.martini/kebi2025#meal_riso-gamberetti-zucchine
+<http://www.semanticweb.org/michele.martini/kebi2025#meal_riso-gamberetti-zucchine> rdf:type owl:NamedIndividual ,
+                                                                                      <http://www.semanticweb.org/michele.martini/kebi2025#Meal> ;
+                                                                             :meal_hasCourse :course_first-dish ;
+                                                                             <http://www.semanticweb.org/michele.martini/kebi2025#food_hasCategory> <http://www.semanticweb.org/michele.martini/kebi2025#category_carnivorous> ,
+                                                                                                                                             <http://www.semanticweb.org/michele.martini/kebi2025#category_omnivore> ,
+                                                                                                                                             <http://www.semanticweb.org/michele.martini/kebi2025#category_vegetarian> ;
+                                                                             <http://www.semanticweb.org/michele.martini/kebi2025#meal_hasIngredient> <http://www.semanticweb.org/michele.martini/kebi2025#ingredient_courgette> ,
+                                                                                                                                               <http://www.semanticweb.org/michele.martini/kebi2025#ingredient_rice> ,
+                                                                                                                                               <http://www.semanticweb.org/michele.martini/kebi2025#ingredient_shrimp> ;
+                                                                             <http://www.semanticweb.org/michele.martini/kebi2025#meal_notContainsGlutenIntolerance> <http://www.semanticweb.org/michele.martini/kebi2025#allergy_gluten> ;
+                                                                             <http://www.semanticweb.org/michele.martini/kebi2025#food_hasKcal> 215 ;
+                                                                             <http://www.semanticweb.org/michele.martini/kebi2025#meal_hasLevelOfCalorieConscious> 0 ,
+                                                                                                                                                            1 ;
+                                                                             <http://www.semanticweb.org/michele.martini/kebi2025#thing_hasName> "RIso gamberetti e zucchine" ;
+                                                                             <http://www.semanticweb.org/michele.martini/kebi2025#meal_hasCourse> <http://www.semanticweb.org/michele.martini/kebi2025#course_first-dish> .
+
+
+###  http://www.semanticweb.org/michele.martini/kebi2025#menu_italian-menu
+<http://www.semanticweb.org/michele.martini/kebi2025#menu_italian-menu> rdf:type owl:NamedIndividual ,
+                                                                          <http://www.semanticweb.org/michele.martini/kebi2025#Menu> ;
+                                                                 <http://www.semanticweb.org/michele.martini/kebi2025#menu_containsMeal> <http://www.semanticweb.org/michele.martini/kebi2025#meal_bistecca-alla-fiorentina> ,
+                                                                                                                                  <http://www.semanticweb.org/michele.martini/kebi2025#meal_carbonara> ,
+                                                                                                                                  <http://www.semanticweb.org/michele.martini/kebi2025#meal_insalata> ,
+                                                                                                                                  <http://www.semanticweb.org/michele.martini/kebi2025#meal_macedonia> ,
+                                                                                                                                  <http://www.semanticweb.org/michele.martini/kebi2025#meal_parmigiana> ,
+                                                                                                                                  <http://www.semanticweb.org/michele.martini/kebi2025#meal_pasta-burro-salvia> ,
+                                                                                                                                  <http://www.semanticweb.org/michele.martini/kebi2025#meal_patate-forno> ,
+                                                                                                                                  <http://www.semanticweb.org/michele.martini/kebi2025#meal_polpette-zucchine> ,
+                                                                                                                                  <http://www.semanticweb.org/michele.martini/kebi2025#meal_riso-gamberetti-zucchine> .
+
+
+###  http://www.semanticweb.org/michele.martini/kebi2025#restaurant_our-restaurant
+<http://www.semanticweb.org/michele.martini/kebi2025#restaurant_our-restaurant> rdf:type owl:NamedIndividual ,
+                                                                                  <http://www.semanticweb.org/michele.martini/kebi2025#Restaurant> ;
+                                                                         <http://www.semanticweb.org/michele.martini/kebi2025#restaurant_hasGuest> <http://www.semanticweb.org/michele.martini/kebi2025#guest_guest1> ,
+                                                                                                                                            <http://www.semanticweb.org/michele.martini/kebi2025#guest_guest2> ;
+                                                                         <http://www.semanticweb.org/michele.martini/kebi2025#restaurant_hasMenu> <http://www.semanticweb.org/michele.martini/kebi2025#menu_italian-menu> ;
+                                                                         <http://www.semanticweb.org/michele.martini/kebi2025#thing_hasName> "Ristorante Martini" .
+
+
+#################################################################
+#    General axioms
+#################################################################
+
+[ rdf:type owl:AllDifferent ;
+  owl:distinctMembers ( <http://www.semanticweb.org/michele.martini/kebi2025#meal_pasta-burro-salvia>
+                      )
+] .
+
+
+#################################################################
+#    Rules
+#################################################################
+
+<http://www.semanticweb.org/michele.martini/kebi2025#guest> rdf:type <http://www.w3.org/2003/11/swrl#Variable> .
+
+<http://www.semanticweb.org/michele.martini/kebi2025#allergy> rdf:type <http://www.w3.org/2003/11/swrl#Variable> .
+
+<http://www.semanticweb.org/michele.martini/kebi2025#meal> rdf:type <http://www.w3.org/2003/11/swrl#Variable> .
+
+<http://www.semanticweb.org/michele.martini/kebi2025#ingredient> rdf:type <http://www.w3.org/2003/11/swrl#Variable> .
+
+<http://www.semanticweb.org/michele.martini/kebi2025#dairy> rdf:type <http://www.w3.org/2003/11/swrl#Variable> .
+
+<http://www.semanticweb.org/michele.martini/kebi2025#gluten> rdf:type <http://www.w3.org/2003/11/swrl#Variable> .
+
+[ <http://swrl.stanford.edu/ontologies/3.3/swrla.owl#isRuleEnabled> "true"^^xsd:boolean ;
+   rdfs:comment "" ;
+   rdfs:label "GuestIsAtRiskForFoodGluten" ;
+   rdf:type <http://www.w3.org/2003/11/swrl#Imp> ;
+   <http://www.w3.org/2003/11/swrl#body> [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                           rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#ClassAtom> ;
+                                                       <http://www.w3.org/2003/11/swrl#classPredicate> <http://www.semanticweb.org/michele.martini/kebi2025#Guest> ;
+                                                       <http://www.w3.org/2003/11/swrl#argument1> <http://www.semanticweb.org/michele.martini/kebi2025#guest>
+                                                     ] ;
+                                           rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                      rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> ;
+                                                                  <http://www.w3.org/2003/11/swrl#propertyPredicate> <http://www.semanticweb.org/michele.martini/kebi2025#guest_hasAllergy> ;
+                                                                  <http://www.w3.org/2003/11/swrl#argument1> <http://www.semanticweb.org/michele.martini/kebi2025#guest> ;
+                                                                  <http://www.w3.org/2003/11/swrl#argument2> <http://www.semanticweb.org/michele.martini/kebi2025#allergy>
+                                                                ] ;
+                                                      rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                                 rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#ClassAtom> ;
+                                                                             <http://www.w3.org/2003/11/swrl#classPredicate> <http://www.semanticweb.org/michele.martini/kebi2025#Meal> ;
+                                                                             <http://www.w3.org/2003/11/swrl#argument1> <http://www.semanticweb.org/michele.martini/kebi2025#meal>
+                                                                           ] ;
+                                                                 rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                                            rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> ;
+                                                                                        <http://www.w3.org/2003/11/swrl#propertyPredicate> <http://www.semanticweb.org/michele.martini/kebi2025#meal_containsGlutenIntolerance> ;
+                                                                                        <http://www.w3.org/2003/11/swrl#argument1> <http://www.semanticweb.org/michele.martini/kebi2025#meal> ;
+                                                                                        <http://www.w3.org/2003/11/swrl#argument2> <http://www.semanticweb.org/michele.martini/kebi2025#allergy>
+                                                                                      ] ;
+                                                                            rdf:rest rdf:nil
+                                                                          ]
+                                                               ]
+                                                    ]
+                                         ] ;
+   <http://www.w3.org/2003/11/swrl#head> [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                           rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> ;
+                                                       <http://www.w3.org/2003/11/swrl#propertyPredicate> <http://www.semanticweb.org/michele.martini/kebi2025#guest_isAtRiskForFood> ;
+                                                       <http://www.w3.org/2003/11/swrl#argument1> <http://www.semanticweb.org/michele.martini/kebi2025#guest> ;
+                                                       <http://www.w3.org/2003/11/swrl#argument2> <http://www.semanticweb.org/michele.martini/kebi2025#meal>
+                                                     ] ;
+                                           rdf:rest rdf:nil
+                                         ]
+ ] .
+
+[ <http://swrl.stanford.edu/ontologies/3.3/swrla.owl#isRuleEnabled> "true"^^xsd:boolean ;
+   rdfs:comment "" ;
+   rdfs:label "GuestIsAtRiskForFoodLactose" ;
+   rdf:type <http://www.w3.org/2003/11/swrl#Imp> ;
+   <http://www.w3.org/2003/11/swrl#body> [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                           rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#ClassAtom> ;
+                                                       <http://www.w3.org/2003/11/swrl#classPredicate> <http://www.semanticweb.org/michele.martini/kebi2025#Guest> ;
+                                                       <http://www.w3.org/2003/11/swrl#argument1> <http://www.semanticweb.org/michele.martini/kebi2025#guest>
+                                                     ] ;
+                                           rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                      rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> ;
+                                                                  <http://www.w3.org/2003/11/swrl#propertyPredicate> <http://www.semanticweb.org/michele.martini/kebi2025#guest_hasAllergy> ;
+                                                                  <http://www.w3.org/2003/11/swrl#argument1> <http://www.semanticweb.org/michele.martini/kebi2025#guest> ;
+                                                                  <http://www.w3.org/2003/11/swrl#argument2> <http://www.semanticweb.org/michele.martini/kebi2025#allergy>
+                                                                ] ;
+                                                      rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                                 rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#ClassAtom> ;
+                                                                             <http://www.w3.org/2003/11/swrl#classPredicate> <http://www.semanticweb.org/michele.martini/kebi2025#Meal> ;
+                                                                             <http://www.w3.org/2003/11/swrl#argument1> <http://www.semanticweb.org/michele.martini/kebi2025#meal>
+                                                                           ] ;
+                                                                 rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                                            rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> ;
+                                                                                        <http://www.w3.org/2003/11/swrl#propertyPredicate> <http://www.semanticweb.org/michele.martini/kebi2025#meal_containsLactoseIntolerance> ;
+                                                                                        <http://www.w3.org/2003/11/swrl#argument1> <http://www.semanticweb.org/michele.martini/kebi2025#meal> ;
+                                                                                        <http://www.w3.org/2003/11/swrl#argument2> <http://www.semanticweb.org/michele.martini/kebi2025#allergy>
+                                                                                      ] ;
+                                                                            rdf:rest rdf:nil
+                                                                          ]
+                                                               ]
+                                                    ]
+                                         ] ;
+   <http://www.w3.org/2003/11/swrl#head> [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                           rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> ;
+                                                       <http://www.w3.org/2003/11/swrl#propertyPredicate> <http://www.semanticweb.org/michele.martini/kebi2025#guest_isAtRiskForFood> ;
+                                                       <http://www.w3.org/2003/11/swrl#argument1> <http://www.semanticweb.org/michele.martini/kebi2025#guest> ;
+                                                       <http://www.w3.org/2003/11/swrl#argument2> <http://www.semanticweb.org/michele.martini/kebi2025#meal>
+                                                     ] ;
+                                           rdf:rest rdf:nil
+                                         ]
+ ] .
+
+[ <http://swrl.stanford.edu/ontologies/3.3/swrla.owl#isRuleEnabled> "true"^^xsd:boolean ;
+   rdfs:comment "" ;
+   rdfs:label "MealContainsLactoseIntolerance" ;
+   rdf:type <http://www.w3.org/2003/11/swrl#Imp> ;
+   <http://www.w3.org/2003/11/swrl#body> [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                           rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#ClassAtom> ;
+                                                       <http://www.w3.org/2003/11/swrl#classPredicate> <http://www.semanticweb.org/michele.martini/kebi2025#Meal> ;
+                                                       <http://www.w3.org/2003/11/swrl#argument1> <http://www.semanticweb.org/michele.martini/kebi2025#meal>
+                                                     ] ;
+                                           rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                      rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> ;
+                                                                  <http://www.w3.org/2003/11/swrl#propertyPredicate> <http://www.semanticweb.org/michele.martini/kebi2025#meal_hasIngredient> ;
+                                                                  <http://www.w3.org/2003/11/swrl#argument1> <http://www.semanticweb.org/michele.martini/kebi2025#meal> ;
+                                                                  <http://www.w3.org/2003/11/swrl#argument2> <http://www.semanticweb.org/michele.martini/kebi2025#ingredient>
+                                                                ] ;
+                                                      rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                                 rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#ClassAtom> ;
+                                                                             <http://www.w3.org/2003/11/swrl#classPredicate> <http://www.semanticweb.org/michele.martini/kebi2025#Ingredient> ;
+                                                                             <http://www.w3.org/2003/11/swrl#argument1> <http://www.semanticweb.org/michele.martini/kebi2025#ingredient>
+                                                                           ] ;
+                                                                 rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                                            rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> ;
+                                                                                        <http://www.w3.org/2003/11/swrl#propertyPredicate> <http://www.semanticweb.org/michele.martini/kebi2025#dairy_containsLactoseIntolerance> ;
+                                                                                        <http://www.w3.org/2003/11/swrl#argument1> <http://www.semanticweb.org/michele.martini/kebi2025#ingredient> ;
+                                                                                        <http://www.w3.org/2003/11/swrl#argument2> <http://www.semanticweb.org/michele.martini/kebi2025#dairy>
+                                                                                      ] ;
+                                                                            rdf:rest rdf:nil
+                                                                          ]
+                                                               ]
+                                                    ]
+                                         ] ;
+   <http://www.w3.org/2003/11/swrl#head> [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                           rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> ;
+                                                       <http://www.w3.org/2003/11/swrl#propertyPredicate> <http://www.semanticweb.org/michele.martini/kebi2025#meal_containsLactoseIntolerance> ;
+                                                       <http://www.w3.org/2003/11/swrl#argument1> <http://www.semanticweb.org/michele.martini/kebi2025#meal> ;
+                                                       <http://www.w3.org/2003/11/swrl#argument2> <http://www.semanticweb.org/michele.martini/kebi2025#dairy>
+                                                     ] ;
+                                           rdf:rest rdf:nil
+                                         ]
+ ] .
+
+[ <http://swrl.stanford.edu/ontologies/3.3/swrla.owl#isRuleEnabled> "true"^^xsd:boolean ;
+   rdfs:comment "" ;
+   rdfs:label "MealContainsGlutenIntolerance" ;
+   rdf:type <http://www.w3.org/2003/11/swrl#Imp> ;
+   <http://www.w3.org/2003/11/swrl#body> [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                           rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#ClassAtom> ;
+                                                       <http://www.w3.org/2003/11/swrl#classPredicate> <http://www.semanticweb.org/michele.martini/kebi2025#Meal> ;
+                                                       <http://www.w3.org/2003/11/swrl#argument1> <http://www.semanticweb.org/michele.martini/kebi2025#meal>
+                                                     ] ;
+                                           rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                      rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> ;
+                                                                  <http://www.w3.org/2003/11/swrl#propertyPredicate> <http://www.semanticweb.org/michele.martini/kebi2025#meal_hasIngredient> ;
+                                                                  <http://www.w3.org/2003/11/swrl#argument1> <http://www.semanticweb.org/michele.martini/kebi2025#meal> ;
+                                                                  <http://www.w3.org/2003/11/swrl#argument2> <http://www.semanticweb.org/michele.martini/kebi2025#ingredient>
+                                                                ] ;
+                                                      rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                                 rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#ClassAtom> ;
+                                                                             <http://www.w3.org/2003/11/swrl#classPredicate> <http://www.semanticweb.org/michele.martini/kebi2025#Ingredient> ;
+                                                                             <http://www.w3.org/2003/11/swrl#argument1> <http://www.semanticweb.org/michele.martini/kebi2025#ingredient>
+                                                                           ] ;
+                                                                 rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                                            rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> ;
+                                                                                        <http://www.w3.org/2003/11/swrl#propertyPredicate> <http://www.semanticweb.org/michele.martini/kebi2025#grain_containsGlutenIntolerance> ;
+                                                                                        <http://www.w3.org/2003/11/swrl#argument1> <http://www.semanticweb.org/michele.martini/kebi2025#ingredient> ;
+                                                                                        <http://www.w3.org/2003/11/swrl#argument2> <http://www.semanticweb.org/michele.martini/kebi2025#gluten>
+                                                                                      ] ;
+                                                                            rdf:rest rdf:nil
+                                                                          ]
+                                                               ]
+                                                    ]
+                                         ] ;
+   <http://www.w3.org/2003/11/swrl#head> [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                           rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> ;
+                                                       <http://www.w3.org/2003/11/swrl#propertyPredicate> <http://www.semanticweb.org/michele.martini/kebi2025#meal_containsGlutenIntolerance> ;
+                                                       <http://www.w3.org/2003/11/swrl#argument1> <http://www.semanticweb.org/michele.martini/kebi2025#meal> ;
+                                                       <http://www.w3.org/2003/11/swrl#argument2> <http://www.semanticweb.org/michele.martini/kebi2025#gluten>
+                                                     ] ;
+                                           rdf:rest rdf:nil
+                                         ]
+ ] .
+
+###  Generated by the OWL API (version 4.5.29.2024-05-13T12:11:03Z) https://github.com/owlcs/owlapi

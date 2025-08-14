@@ -1,0 +1,624 @@
+<?xml version="1.0" encoding="UTF-8"?><dmn:definitions xmlns:dmn="http://www.omg.org/spec/DMN/20151101/dmn.xsd" xmlns:triso="http://www.trisotech.com/2015/triso/modeling" xmlns="http://www.trisotech.com/definitions/_de94955a-1663-4814-a3cf-65bc503b58ef" xmlns:boxedext="https://www.trisotech.com/spec/DMN/20191111/EXT/" xmlns:drools="http://www.drools.org/kie/dmn/1.1" xmlns:feel="http://www.omg.org/spec/FEEL/20140401" xmlns:i18n="http://www.omg.org/spec/BPMN/non-normative/extensions/i18n/1.0" xmlns:openapi="https://openapis.org/omg/extension/1.0" xmlns:rss="http://purl.org/rss/2.0/" xmlns:sdmn="https://www.omg.org/spec/SDMN/" xmlns:tc="http://www.omg.org/spec/DMN/20160719/testcase" xmlns:trisodmn="http://www.trisotech.com/2016/triso/dmn" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" exporter="Decision Modeler" exporterVersion="9.9.6" id="_de94955a-1663-4814-a3cf-65bc503b58ef" name="KEBI_Menu_DRD" namespace="http://www.trisotech.com/definitions/_de94955a-1663-4814-a3cf-65bc503b58ef" triso:logoChoice="Default" xml:lang="en">
+  <dmn11:extensionElements xmlns:dmn11="http://www.omg.org/spec/DMN/20151101/dmn.xsd">
+    <drools:decisionServices>
+      <dmn11:decisionService id="_de94955a-1663-4814-a3cf-65bc503b58ef_DS" name="Whole Model Decision Service" triso:dynamicDecisionService="true" triso:wholeModelService="true">
+        <dmn:outputDecision href="#_2b5cac57-bfd3-4c3c-b2ab-59b9fc19b5c6"/>
+        <dmn:encapsulatedDecision href="#_22e413dd-7e45-402a-a86c-39127a14e096"/>
+        <dmn:encapsulatedDecision href="#_6d4812cf-784d-49c8-b0c8-50e4cbaf01b7"/>
+        <dmn:inputData href="#_ce0bfb96-96ba-4bf5-9626-cb1035dda89a"/>
+        <dmn:inputData href="#_eee95237-ba4f-43b0-8e64-052b0bf5c917"/>
+        <dmn:inputData href="#_ce0ea677-6f11-49ee-a01b-a0186a87c069"/>
+        <dmn:inputData href="#_248819ca-75b8-4f94-b6a4-4e7558fcb977"/>
+        <dmn:inputData href="#_6c2a87c2-8c31-49cd-8ce9-ee2cd26a1a08"/>
+      </dmn11:decisionService>
+      <dmn11:decisionService id="_874f91a1-0266-4b1b-b345-a02a90d44029_DS" name="Diagram Page 1" triso:dynamicDecisionService="true">
+        <dmn:outputDecision href="#_2b5cac57-bfd3-4c3c-b2ab-59b9fc19b5c6"/>
+        <dmn:encapsulatedDecision href="#_22e413dd-7e45-402a-a86c-39127a14e096"/>
+        <dmn:encapsulatedDecision href="#_6d4812cf-784d-49c8-b0c8-50e4cbaf01b7"/>
+        <dmn:inputData href="#_ce0bfb96-96ba-4bf5-9626-cb1035dda89a"/>
+        <dmn:inputData href="#_eee95237-ba4f-43b0-8e64-052b0bf5c917"/>
+        <dmn:inputData href="#_ce0ea677-6f11-49ee-a01b-a0186a87c069"/>
+        <dmn:inputData href="#_248819ca-75b8-4f94-b6a4-4e7558fcb977"/>
+        <dmn:inputData href="#_6c2a87c2-8c31-49cd-8ce9-ee2cd26a1a08"/>
+      </dmn11:decisionService>
+      <dmn11:decisionService id="_c764b261-bc5f-44da-9a42-afe94b93b259" name="Decision Service Choose Ingredients" triso:readOnly="false">
+        <dmn:outputDecision href="#_22e413dd-7e45-402a-a86c-39127a14e096"/>
+        <dmn:inputData href="#_ce0bfb96-96ba-4bf5-9626-cb1035dda89a"/>
+        <dmn:inputData href="#_eee95237-ba4f-43b0-8e64-052b0bf5c917"/>
+        <dmn:inputData href="#_ce0ea677-6f11-49ee-a01b-a0186a87c069"/>
+      </dmn11:decisionService>
+    </drools:decisionServices>
+  </dmn11:extensionElements>
+  <dmn:itemDefinition label="Collection of ingredients" name="Collection_of_ingredients">
+    <dmn11:typeRef xmlns:dmn11="http://www.omg.org/spec/DMN/20151101/dmn.xsd">collectionOfString</dmn11:typeRef>
+  </dmn:itemDefinition>
+  <dmn:itemDefinition isCollection="true" label="list" name="list">
+    <dmn:itemComponent id="_7f51cf08-1862-4ee6-ab3f-8c0a1d70b969" isCollection="true" name="ingredients">
+      <dmn11:typeRef xmlns:dmn11="http://www.omg.org/spec/DMN/20151101/dmn.xsd">feel:string</dmn11:typeRef>
+    </dmn:itemComponent>
+  </dmn:itemDefinition>
+  <dmn:itemDefinition isCollection="true" label="Meal availability type" name="Meal_availability_type">
+    <dmn:itemComponent id="_f98ea47b-a1f9-485b-a656-167ad08a0c7d" name="name">
+      <dmn11:typeRef xmlns:dmn11="http://www.omg.org/spec/DMN/20151101/dmn.xsd">feel:string</dmn11:typeRef>
+      <dmn:allowedValues>
+        <dmn:extensionElements>
+          <triso:constraintDetails constraintsType="enumeration" id="_bceef85b-bf65-4029-aa7b-69030e5ee8b2">
+            <triso:value>"Risotto gamberetti e zucchine","Pasta burro e salvia","Carbonara","Fiorentina","Polpette di zucchine","Parmigiana","Insalata","Patate al forno","Macedonia"</triso:value>
+            <triso:display>"Risotto gamberetti e zucchine", "Pasta burro e salvia", "Carbonara", "Fiorentina", "Polpette di zucchine", "Parmigiana", "Insalata", "Patate al forno", "Macedonia"</triso:display>
+            <triso:choices>
+              <triso:value>"Risotto gamberetti e zucchine"</triso:value>
+              <triso:display>"Risotto gamberetti e zucchine"</triso:display>
+            </triso:choices>
+            <triso:choices>
+              <triso:value>"Pasta burro e salvia"</triso:value>
+              <triso:display>"Pasta burro e salvia"</triso:display>
+            </triso:choices>
+            <triso:choices>
+              <triso:value>"Carbonara"</triso:value>
+              <triso:display>"Carbonara"</triso:display>
+            </triso:choices>
+            <triso:choices>
+              <triso:value>"Fiorentina"</triso:value>
+              <triso:display>"Fiorentina"</triso:display>
+            </triso:choices>
+            <triso:choices>
+              <triso:value>"Polpette di zucchine"</triso:value>
+              <triso:display>"Polpette di zucchine"</triso:display>
+            </triso:choices>
+            <triso:choices>
+              <triso:value>"Parmigiana"</triso:value>
+              <triso:display>"Parmigiana"</triso:display>
+            </triso:choices>
+            <triso:choices>
+              <triso:value>"Insalata"</triso:value>
+              <triso:display>"Insalata"</triso:display>
+            </triso:choices>
+            <triso:choices>
+              <triso:value>"Patate al forno"</triso:value>
+              <triso:display>"Patate al forno"</triso:display>
+            </triso:choices>
+            <triso:choices>
+              <triso:value>"Macedonia"</triso:value>
+              <triso:display>"Macedonia"</triso:display>
+            </triso:choices>
+          </triso:constraintDetails>
+        </dmn:extensionElements>
+        <dmn:text>"Risotto gamberetti e zucchine","Pasta burro e salvia","Carbonara","Fiorentina","Polpette di zucchine","Parmigiana","Insalata","Patate al forno","Macedonia"</dmn:text>
+      </dmn:allowedValues>
+    </dmn:itemComponent>
+    <dmn:itemComponent id="_9687e85e-07ea-4c7a-b35f-1a67552aa28f" name="availability">
+      <dmn11:typeRef xmlns:dmn11="http://www.omg.org/spec/DMN/20151101/dmn.xsd">feel:boolean</dmn11:typeRef>
+    </dmn:itemComponent>
+  </dmn:itemDefinition>
+  <dmn:itemDefinition label="Calorie_conscious_Level" name="Calorie_conscious_Level">
+    <dmn11:typeRef xmlns:dmn11="http://www.omg.org/spec/DMN/20151101/dmn.xsd">feel:number</dmn11:typeRef>
+    <dmn:allowedValues>
+      <dmn:extensionElements>
+        <triso:constraintDetails constraintsType="simple" id="_ea13cd2e-8c87-4e55-b0a1-23dcc81e303a" max="1" maxIncluded="false" min="0" minIncluded="false">
+          <triso:value>(0..1)</triso:value>
+          <triso:display>(0..1)</triso:display>
+        </triso:constraintDetails>
+      </dmn:extensionElements>
+      <dmn:text>(0..1)</dmn:text>
+    </dmn:allowedValues>
+  </dmn:itemDefinition>
+  <dmn:itemDefinition isCollection="true" name="collectionOfString">
+    <dmn11:typeRef xmlns:dmn11="http://www.omg.org/spec/DMN/20151101/dmn.xsd">feel:string</dmn11:typeRef>
+  </dmn:itemDefinition>
+  <dmn:inputData id="_ce0bfb96-96ba-4bf5-9626-cb1035dda89a" name="isGluten_Intolerant" triso:readOnly="false">
+    <dmn:variable id="_6f516c8e-26fb-4452-b2dc-7a253b641604" name="isGluten_Intolerant" typeRef="feel:boolean"/>
+  </dmn:inputData>
+  <dmn:inputData id="_eee95237-ba4f-43b0-8e64-052b0bf5c917" name="isLactose_Intolerant" triso:readOnly="false">
+    <dmn:variable id="_2eb3ec20-b4a5-411f-8a21-516b1e0df7b7" name="isLactose_Intolerant" typeRef="feel:boolean"/>
+  </dmn:inputData>
+  <dmn:inputData id="_ce0ea677-6f11-49ee-a01b-a0186a87c069" name="Guest_Diet" triso:readOnly="false">
+    <dmn:variable id="_04185123-aab6-4718-a34e-56396a440f37" name="Guest_Diet" typeRef="feel:string"/>
+  </dmn:inputData>
+  <dmn:decision id="_22e413dd-7e45-402a-a86c-39127a14e096" name="Choose Ingredients" triso:readOnly="false">
+    <dmn:variable id="_544f9a70-b6bf-4a04-8f7b-ab87e84d6325" name="Choose Ingredients" typeRef="list"/>
+    <dmn:informationRequirement triso:readOnly="false">
+      <dmn:requiredInput href="#_eee95237-ba4f-43b0-8e64-052b0bf5c917"/>
+    </dmn:informationRequirement>
+    <dmn:informationRequirement triso:readOnly="false">
+      <dmn:requiredInput href="#_ce0bfb96-96ba-4bf5-9626-cb1035dda89a"/>
+    </dmn:informationRequirement>
+    <dmn:informationRequirement triso:readOnly="false">
+      <dmn:requiredInput href="#_ce0ea677-6f11-49ee-a01b-a0186a87c069"/>
+    </dmn:informationRequirement>
+    <dmn:decisionTable hitPolicy="COLLECT" id="_7227b07b-0e38-45db-981c-5eb61e4c034e" outputLabel="Choose Ingredients" triso:descriptionVisible="false" triso:expressionId="_f5e595cb-70ae-4eea-80bf-e24824243d24" typeRef="list">
+      <dmn:input id="_0162b0d0-4534-476a-801a-f68e236ef9d0" label="isLactose_Intolerant">
+        <dmn:inputExpression typeRef="feel:boolean">
+          <dmn:text>isLactose_Intolerant</dmn:text>
+        </dmn:inputExpression>
+      </dmn:input>
+      <dmn:input id="_9629a737-2f60-4207-af37-53bdf9963318" label="isGluten_Intolerant">
+        <dmn:inputExpression typeRef="feel:boolean">
+          <dmn:text>isGluten_Intolerant</dmn:text>
+        </dmn:inputExpression>
+      </dmn:input>
+      <dmn:input id="_9ce2c8d4-8f02-4dfa-841f-419aa6a1ef23" label="Guest_Diet">
+        <dmn:inputExpression typeRef="feel:string">
+          <dmn:text>Guest_Diet</dmn:text>
+        </dmn:inputExpression>
+        <dmn:inputValues triso:constraintsType="expression">
+          <dmn:text>"carnivorous","vegetarian","omnivore"</dmn:text>
+        </dmn:inputValues>
+      </dmn:input>
+      <dmn:output id="_6795acd7-5ca3-4acd-8387-20b32f04e99c" typeRef="list"/>
+      <dmn:rule id="_972749fa-360c-46c2-8520-83c05c91e900">
+        <dmn:inputEntry id="_c1caa536-4c6b-45bf-8055-83d0e0c54c52">
+          <dmn:text>-</dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="_4058873a-afc0-4d78-9603-2af04cea4916">
+          <dmn:text>-</dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="_bfa502b5-34c0-4462-a40e-a0dab9abb8f3">
+          <dmn:text>"vegetarian","omnivore"</dmn:text>
+        </dmn:inputEntry>
+        <dmn:outputEntry id="_111d0692-dbc5-442b-af92-8790a77b1989">
+          <dmn:text>"Courgette"</dmn:text>
+        </dmn:outputEntry>
+      </dmn:rule>
+      <dmn:rule id="_562029cc-a05d-45ff-ac41-865af94070df">
+        <dmn:inputEntry id="_3cdfafe8-eb32-47d6-b08b-b890657de0fb">
+          <dmn:text>-</dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="_3d31c434-0915-41c6-98d8-e4dbe74d699d">
+          <dmn:text>-</dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="_808be25e-bbc1-4afa-a6af-a4561ca9cf60">
+          <dmn:text>"vegetarian","omnivore"</dmn:text>
+        </dmn:inputEntry>
+        <dmn:outputEntry id="_03fe49ac-830d-45cf-9162-54d703ac3be2">
+          <dmn:text>"Eggplant"</dmn:text>
+        </dmn:outputEntry>
+      </dmn:rule>
+      <dmn:rule id="_44d4c2a8-ff40-4fb9-8d53-8b5e749cd444">
+        <dmn:inputEntry id="_973c9d73-d9b5-43b8-b4f5-442b0424c274">
+          <dmn:text>-</dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="_fab1c155-6aae-40df-962f-fc1c857a752b">
+          <dmn:text>-</dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="_bd0dcecf-5c85-4c21-b47b-c65e51f92a2b">
+          <dmn:text>"vegetarian","omnivore"</dmn:text>
+        </dmn:inputEntry>
+        <dmn:outputEntry id="_4ddc0126-3233-47f2-8fa7-aad1428d059d">
+          <dmn:text>"Lettuce"</dmn:text>
+        </dmn:outputEntry>
+      </dmn:rule>
+      <dmn:rule id="_42aaf56c-a0e0-4473-9b24-d9bad87473a5">
+        <dmn:inputEntry id="_eae9bad8-8e01-469a-8498-54db5723ddea">
+          <dmn:text>-</dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="_00a7dc84-544e-4bbc-b742-b06b4d7f9a89">
+          <dmn:text>-</dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="_3020c3b7-fbad-4860-b404-badb89f7ac93">
+          <dmn:text>"carnivorous","omnivore"</dmn:text>
+        </dmn:inputEntry>
+        <dmn:outputEntry id="_8fbbc922-5c0b-4aec-9f10-4bd0eadd45e0">
+          <dmn:text>"Shrimp"</dmn:text>
+        </dmn:outputEntry>
+      </dmn:rule>
+      <dmn:rule id="_319bb450-148e-412f-910a-2f015d3f4c8d">
+        <dmn:inputEntry id="_e2b49eab-41ba-4ec5-b76a-20cad2da9c6c">
+          <dmn:text>-</dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="_2cb34560-055d-4f6b-a740-1d7ac6d3c03d">
+          <dmn:text>-</dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="_9e2df68d-2d63-4e1a-84f0-b5416b9b8853">
+          <dmn:text>"carnivorous","omnivore"</dmn:text>
+        </dmn:inputEntry>
+        <dmn:outputEntry id="_18948073-d0a7-42e4-82c0-f2f95eb4d8d5">
+          <dmn:text>"Pork Jowl"</dmn:text>
+        </dmn:outputEntry>
+      </dmn:rule>
+      <dmn:rule id="_53a58f53-0eae-49c2-aa3f-ce06d03f32d6">
+        <dmn:inputEntry id="_94e7f24d-b9f5-4f20-a884-29949aafc2a4">
+          <dmn:text>-</dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="_7290cf30-e892-4b58-8f44-48d164098a7b">
+          <dmn:text>-</dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="_6d35e317-cbdb-4533-8201-7606f28def86">
+          <dmn:text>"carnivorous","omnivore"</dmn:text>
+        </dmn:inputEntry>
+        <dmn:outputEntry id="_81360e26-e9f5-4785-8a6f-580ffffdc7a4">
+          <dmn:text>"Beef Steak"</dmn:text>
+        </dmn:outputEntry>
+      </dmn:rule>
+      <dmn:rule id="_dd02dcfb-0c32-47c4-9131-fb24d80e1d5b">
+        <dmn:inputEntry id="_2b80ce34-248f-463a-9ac6-b29d6887c05a">
+          <dmn:text>-</dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="_54e5b905-dcbd-4efa-bd55-6fa03a584d86">
+          <dmn:text>-</dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="_045925f4-789e-4fdc-a82a-928cc251c93f">
+          <dmn:text>"carnivorous","vegetarian","omnivore"</dmn:text>
+        </dmn:inputEntry>
+        <dmn:outputEntry id="_dea351b0-b612-4929-901a-01271b9da095">
+          <dmn:text>"Butter"</dmn:text>
+        </dmn:outputEntry>
+      </dmn:rule>
+      <dmn:rule id="_cf89f48f-cc67-4ac6-9eac-f6ef5f9e844d">
+        <dmn:inputEntry id="_fa7fd715-3def-427c-8025-5b82fc9990c9">
+          <dmn:text>-</dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="_ca8b5ae7-4ace-484c-82d8-f67c21e2780d">
+          <dmn:text>-</dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="_62c1c82d-a5be-4619-8756-2230085785b6">
+          <dmn:text>"carnivorous","vegetarian","omnivore"</dmn:text>
+        </dmn:inputEntry>
+        <dmn:outputEntry id="_0c183a3d-14f8-496e-a7c3-48cf7e1524ab">
+          <dmn:text>"Sage"</dmn:text>
+        </dmn:outputEntry>
+      </dmn:rule>
+      <dmn:rule id="_c6535c75-a5e4-4808-af0c-6eb7db0334ea">
+        <dmn:inputEntry id="_3603434a-7848-4881-b82f-1c3354101e0d">
+          <dmn:text>-</dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="_15c5b78c-f74c-4bfd-9a42-50184f6b5def">
+          <dmn:text>-</dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="_6cef2c10-a9a9-4b65-957a-b9d466669e53">
+          <dmn:text>"carnivorous","vegetarian","omnivore"</dmn:text>
+        </dmn:inputEntry>
+        <dmn:outputEntry id="_d8730e5c-f1b6-473a-8fb3-216024052d93">
+          <dmn:text>"Rice"</dmn:text>
+        </dmn:outputEntry>
+      </dmn:rule>
+      <dmn:rule id="_874511e1-0950-4f11-9fe9-e9bfda6d7e97">
+        <dmn:inputEntry id="_681b351b-d6cf-4b71-aa54-58167fee8f8a">
+          <dmn:text>-</dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="_265509d5-ccb1-47d3-adc6-91d67f238c9d">
+          <dmn:text>-</dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="_5591a7ac-0cbc-4d54-aa5f-0c1f49ecb30c">
+          <dmn:text>"carnivorous","vegetarian","omnivore"</dmn:text>
+        </dmn:inputEntry>
+        <dmn:outputEntry id="_7a053b46-9369-4f10-9096-f09ed586b524">
+          <dmn:text>"Egg"</dmn:text>
+        </dmn:outputEntry>
+      </dmn:rule>
+      <dmn:rule id="_ea49b48b-8c16-4aef-b9cd-3cd9538d8152">
+        <dmn:inputEntry id="_d89372c4-2b63-4510-8702-8d3048de45f2">
+          <dmn:text>-</dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="_e46845f8-6cf9-49f2-b2f0-49f2263c2499">
+          <dmn:text>-</dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="_8464af92-3f35-4a32-b1e2-096d5e5559c9">
+          <dmn:text>"carnivorous","vegetarian","omnivore"</dmn:text>
+        </dmn:inputEntry>
+        <dmn:outputEntry id="_7821a72f-d553-4ee6-af74-fdb48d33ab6b">
+          <dmn:text>"Tomato Puree"</dmn:text>
+        </dmn:outputEntry>
+      </dmn:rule>
+      <dmn:rule id="_990548bd-f7c5-48e7-a1b0-38d16f0c9430">
+        <dmn:inputEntry id="_24f20b46-450c-42f1-b9d6-73ad569d0c65">
+          <dmn:text>-</dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="_cf9fa62c-0291-47c7-bed1-5905e39baca8">
+          <dmn:text>-</dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="_b7d171e9-27fd-47b0-abca-1ee6617fd871">
+          <dmn:text>"carnivorous","vegetarian","omnivore"</dmn:text>
+        </dmn:inputEntry>
+        <dmn:outputEntry id="_48b81287-763b-4d72-aabd-cf29f1a7232e">
+          <dmn:text>"Potato"</dmn:text>
+        </dmn:outputEntry>
+      </dmn:rule>
+      <dmn:rule id="_2653c6c3-89ec-413c-9c6b-44e4844df72f">
+        <dmn:inputEntry id="_c34b40a3-d7e6-4398-ba69-19405040b969">
+          <dmn:text>-</dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="_6c1a31a8-40c8-4b9a-81d9-cea227a6f686">
+          <dmn:text>-</dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="_1a0a5354-b022-4d3b-bf58-a426a3e98cf7">
+          <dmn:text>"carnivorous","vegetarian","omnivore"</dmn:text>
+        </dmn:inputEntry>
+        <dmn:outputEntry id="_29dec0a6-099d-4b3d-ba2e-d90ccac7809c">
+          <dmn:text>"Peach"</dmn:text>
+        </dmn:outputEntry>
+      </dmn:rule>
+      <dmn:rule id="_654044a2-7926-422a-a46f-54cbb61ec388">
+        <dmn:inputEntry id="_3d4a0f4b-e1f8-4897-9dc3-0f78f5ae97f1">
+          <dmn:text>-</dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="_d6a727ea-8bb2-42d0-90fe-54b44dfd3e99">
+          <dmn:text>-</dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="_ed3caa7e-78bb-400e-b220-12e77df38698">
+          <dmn:text>"carnivorous","vegetarian","omnivore"</dmn:text>
+        </dmn:inputEntry>
+        <dmn:outputEntry id="_e3e92575-bba7-419a-9d79-03293b6939d7">
+          <dmn:text>"Apricot"</dmn:text>
+        </dmn:outputEntry>
+      </dmn:rule>
+      <dmn:rule id="_c34cdf29-b5a2-4661-aa00-a5452d8ea7b3">
+        <dmn:inputEntry id="_6eeb516d-755f-4f05-9c76-40745d36f995">
+          <dmn:text>-</dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="_7365f4e2-4500-48df-9a68-b94495881842">
+          <dmn:text>-</dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="_f23a9cfa-bfda-4a58-b274-bc86af93e4d9">
+          <dmn:text>"carnivorous","vegetarian","omnivore"</dmn:text>
+        </dmn:inputEntry>
+        <dmn:outputEntry id="_035203e0-40e5-450f-b38c-e5101e70e602">
+          <dmn:text>"Watermelon"</dmn:text>
+        </dmn:outputEntry>
+      </dmn:rule>
+      <dmn:rule id="_901e2022-57b8-47c2-81e0-57d5845cc8bb">
+        <dmn:inputEntry id="_80b7ad91-7da9-43ae-8bad-64e00dea1b9a">
+          <dmn:text>-</dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="_6b23e404-3532-4e72-b9b1-4396d61bbd80">
+          <dmn:text>false</dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="_42e07902-dae0-4310-9249-6edfc1a7f5f9">
+          <dmn:text>"carnivorous","vegetarian","omnivore"</dmn:text>
+        </dmn:inputEntry>
+        <dmn:outputEntry id="_014bc20f-6f8d-4d5d-b499-712ece14b716">
+          <dmn:text>"Pasta"</dmn:text>
+        </dmn:outputEntry>
+      </dmn:rule>
+      <dmn:rule id="_9c88e0ef-1808-4bd2-be25-d3e91fa9e4ae">
+        <dmn:inputEntry id="_9a3f6999-71ca-4fc9-bfe3-7d72b62a21ae">
+          <dmn:text>-</dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="_09d0368c-8c58-4cc0-a9e2-23276c3c279a">
+          <dmn:text>false</dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="_c73a2a87-90a4-494b-85c1-042e65d687b3">
+          <dmn:text>"carnivorous","vegetarian","omnivore"</dmn:text>
+        </dmn:inputEntry>
+        <dmn:outputEntry id="_ebf47c94-1f10-4285-a562-3789101e3d55">
+          <dmn:text>"Breadcrumbs"</dmn:text>
+        </dmn:outputEntry>
+      </dmn:rule>
+      <dmn:rule id="_93cfa6b0-8bf1-4f55-aaad-20b0a9447a15">
+        <dmn:inputEntry id="_46013238-dc51-44da-8a80-f21d8999e450">
+          <dmn:text>false</dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="_f6eca5f2-bddf-43b9-bf62-825dd2b46c49">
+          <dmn:text>-</dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="_fabb9a05-1f86-4d6b-86f5-070924126e82">
+          <dmn:text>"carnivorous","vegetarian","omnivore"</dmn:text>
+        </dmn:inputEntry>
+        <dmn:outputEntry id="_efb7227a-af8c-42ef-8ab7-a629fc8fbef8">
+          <dmn:text>"Pecorino"</dmn:text>
+        </dmn:outputEntry>
+      </dmn:rule>
+      <dmn:rule id="_5c5d16a3-8f88-45b5-bf7f-f695fbd116ba">
+        <dmn:inputEntry id="_0d2c2905-cba0-4665-bc97-c9f48bdbf373">
+          <dmn:text>false</dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="_9e11a9d8-5bb9-42ea-ba90-765e1b5aca0c">
+          <dmn:text>-</dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="_1fbce64a-6d1f-411a-b091-dfa530313200">
+          <dmn:text>"carnivorous","vegetarian","omnivore"</dmn:text>
+        </dmn:inputEntry>
+        <dmn:outputEntry id="_3d4b77ae-871d-494c-bf12-ccc47bdb9efe">
+          <dmn:text>"Mozzarella"</dmn:text>
+        </dmn:outputEntry>
+      </dmn:rule>
+      <dmn:rule id="_915870d6-0d3a-4984-a23d-361ef84e382f">
+        <dmn:inputEntry id="_f05cbeb1-1890-42d0-897b-6f196403e0ab">
+          <dmn:text>false</dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="_76c6e5c2-b2cf-4804-87c8-a66be93dbb06">
+          <dmn:text>-</dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="_0c2e99ce-05b6-4247-9a49-9cf6cb5e98b1">
+          <dmn:text>"carnivorous","vegetarian","omnivore"</dmn:text>
+        </dmn:inputEntry>
+        <dmn:outputEntry id="_f6a96f5e-036f-4831-8994-943ffe1328b0">
+          <dmn:text>"Parmigiano"</dmn:text>
+        </dmn:outputEntry>
+      </dmn:rule>
+    </dmn:decisionTable>
+  </dmn:decision>
+  <dmn:decision id="_2b5cac57-bfd3-4c3c-b2ab-59b9fc19b5c6" name="Meal Suggestion" triso:readOnly="false">
+    <dmn:variable id="_79439555-5c0e-4b74-9883-815e4acf4e97" name="Meal Suggestion"/>
+    <dmn:informationRequirement triso:readOnly="false">
+      <dmn:requiredInput href="#_248819ca-75b8-4f94-b6a4-4e7558fcb977"/>
+    </dmn:informationRequirement>
+    <dmn:informationRequirement triso:readOnly="false">
+      <dmn:requiredDecision href="#_22e413dd-7e45-402a-a86c-39127a14e096"/>
+    </dmn:informationRequirement>
+    <dmn:informationRequirement triso:readOnly="false">
+      <dmn:requiredDecision href="#_6d4812cf-784d-49c8-b0c8-50e4cbaf01b7"/>
+    </dmn:informationRequirement>
+    <dmn:informationRequirement triso:readOnly="false">
+      <dmn:requiredInput href="#_6c2a87c2-8c31-49cd-8ce9-ee2cd26a1a08"/>
+    </dmn:informationRequirement>
+    <dmn:decisionTable hitPolicy="COLLECT" id="_d4613781-f28a-4975-b51d-5f20fa8129e6" outputLabel="Meal Suggestion" triso:descriptionVisible="false" triso:expressionId="_758cd1c1-965b-478c-8653-a87a8ed96155">
+      <dmn:input id="_a1eea771-eeb3-4033-8f5d-1acd8bbb71e3" label="isCalorie_Conscious">
+        <dmn:inputExpression typeRef="Calorie_conscious_Level">
+          <dmn:text>isCalorie_Conscious</dmn:text>
+        </dmn:inputExpression>
+        <dmn:inputValues triso:constraintsType="simple">
+          <dmn:text>(0..1)</dmn:text>
+        </dmn:inputValues>
+      </dmn:input>
+      <dmn:input id="_ca071ab5-593b-4de2-bae7-a1af1511dacb" label="Course_Type" triso:allowNull="true">
+        <dmn:inputExpression typeRef="feel:string">
+          <dmn:text>Course_Type</dmn:text>
+        </dmn:inputExpression>
+        <dmn:inputValues triso:constraintsType="enumeration">
+          <dmn:text>"First-Dish","Second-Dish","Side-Dish","Dessert",null</dmn:text>
+        </dmn:inputValues>
+      </dmn:input>
+      <dmn:output id="_430f1fec-32fe-4b93-9cdd-b0b14aaad452" name="Meal Suggestion" triso:allowNull="true" typeRef="feel:string"/>
+      <dmn:output id="_bb1a20b0-00bc-4532-a94d-c7a75b82a38b" name="Total Calories" triso:allowNull="true" typeRef="feel:number"/>
+      <dmn:rule id="_058379a4-52be-46cd-95fe-86c0e39be70f">
+        <dmn:inputEntry id="_58f70d72-66bc-4868-b8fc-5c31ecdd839d">
+          <dmn:text>0,1</dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="_661a1558-977b-4026-8b52-39e747fd5fb2">
+          <dmn:text>"First-Dish"</dmn:text>
+        </dmn:inputEntry>
+        <dmn:outputEntry id="_005f2676-b650-4a80-85d7-28014e282d04">
+          <dmn:text>if list contains(Choose Ingredients, "Rice") and list contains(Choose Ingredients, "Shrimp")  and list contains(Choose Ingredients, "Courgette") then "Riso gamberetti e zucchine" else null</dmn:text>
+        </dmn:outputEntry>
+        <dmn:outputEntry id="_f155bb37-0b71-45fc-82c9-20c0e691308e">
+          <dmn:text>if list contains(Choose Ingredients, "Rice") and list contains(Choose Ingredients, "Shrimp")  and list contains(Choose Ingredients, "Courgette") then sum(for i in Ingredient List return if i.name in ["Rice", "Shrimp", "Courgette"] then i.calories else 0) else 0</dmn:text>
+        </dmn:outputEntry>
+      </dmn:rule>
+      <dmn:rule id="_f5e7a778-9017-462c-83f4-35dcf6b242ce">
+        <dmn:inputEntry id="_ea865e10-8e3b-4c3f-9aff-25887163a01d">
+          <dmn:text>0,1</dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="_c2be6613-7fc5-45a4-9ebe-968567f6d2af">
+          <dmn:text>"Second-Dish"</dmn:text>
+        </dmn:inputEntry>
+        <dmn:outputEntry id="_8c15836e-f078-4d7e-8163-4106162290ac">
+          <dmn:text>if list contains(Choose Ingredients, "Beef Steak") then "Fiorentina" else null</dmn:text>
+        </dmn:outputEntry>
+        <dmn:outputEntry id="_f0ce538e-8022-4e07-98e7-83bdeaf8558e">
+          <dmn:text>if list contains(Choose Ingredients, "Beef Steak") then sum(for i in Ingredient List return if i.name in ["Beef Steak"] then i.calories else 0) else 0</dmn:text>
+        </dmn:outputEntry>
+      </dmn:rule>
+      <dmn:rule id="_420b0d59-324d-4661-a10c-93ac477acd73">
+        <dmn:inputEntry id="_408a0d53-b92a-4577-9298-826f7a1b9c17">
+          <dmn:text>0,1</dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="_ac6a360a-8282-4e8f-baa7-5e60ae4c94cc">
+          <dmn:text>"Second-Dish"</dmn:text>
+        </dmn:inputEntry>
+        <dmn:outputEntry id="_0c243bff-3738-41da-a1f8-04db74185016">
+          <dmn:text>if list contains(Choose Ingredients, "Courgette") and list contains(Choose Ingredients, "Egg")  and list contains(Choose Ingredients, "Breadcrumbs") then "Polpette di zucchine" else null</dmn:text>
+        </dmn:outputEntry>
+        <dmn:outputEntry id="_cbe52af4-c236-4aa5-8a8b-b519179bfb0d">
+          <dmn:text>if list contains(Choose Ingredients, "Courgette") and list contains(Choose Ingredients, "Egg")  and list contains(Choose Ingredients, "Breadcrumbs") then sum(for i in Ingredient List return if i.name in ["Egg", "Breadcrumbs", "Courgette"] then i.calories else 0) else 0</dmn:text>
+        </dmn:outputEntry>
+      </dmn:rule>
+      <dmn:rule id="_52ff6194-d339-4c07-bf68-f8055a424228">
+        <dmn:inputEntry id="_420762c0-b614-494e-b861-03db0ecb2e40">
+          <dmn:text>0,1</dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="_36e2885e-aa09-46ef-b657-16ba53cf9fa4">
+          <dmn:text>"Side-Dish"</dmn:text>
+        </dmn:inputEntry>
+        <dmn:outputEntry id="_68732268-c598-434d-bcf4-a41ca405579f">
+          <dmn:text>if list contains(Choose Ingredients, "Lettuce") then "Insalata" else null</dmn:text>
+        </dmn:outputEntry>
+        <dmn:outputEntry id="_c6b88537-d651-4ce1-9bce-15889047c4d3">
+          <dmn:text>if list contains(Choose Ingredients, "Lettuce") then sum(for i in Ingredient List return if i.name in ["Lettuce"] then i.calories else 0) else 0</dmn:text>
+        </dmn:outputEntry>
+      </dmn:rule>
+      <dmn:rule id="_d6233736-a610-4106-8a38-5d8c625f6989">
+        <dmn:inputEntry id="_b74f0a0a-8f22-409b-bc67-dae7415a6e2d">
+          <dmn:text>0,1</dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="_75438293-fc06-45fd-9467-aba75997af10">
+          <dmn:text>"Side-Dish"</dmn:text>
+        </dmn:inputEntry>
+        <dmn:outputEntry id="_c453a86b-cea4-42a1-abe9-526221ca464e">
+          <dmn:text>if list contains(Choose Ingredients, "Potato") then "Patate al forno" else null</dmn:text>
+        </dmn:outputEntry>
+        <dmn:outputEntry id="_86189ef4-6bdb-4201-9dc7-d9b2ecca2bbd">
+          <dmn:text>if list contains(Choose Ingredients, "Potato") then sum(for i in Ingredient List return if i.name in ["Potato"] then i.calories else 0) else 0</dmn:text>
+        </dmn:outputEntry>
+      </dmn:rule>
+      <dmn:rule id="_35bdd26c-1993-48c7-a888-ebe35355818a">
+        <dmn:inputEntry id="_e09cedc8-c7ae-41ea-831d-3a1fda635930">
+          <dmn:text>0,1</dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="_33db8b32-e2d7-43cc-9447-58b6041f2a94">
+          <dmn:text>"Dessert"</dmn:text>
+        </dmn:inputEntry>
+        <dmn:outputEntry id="_ceac5ca9-674b-4f4c-adc8-bc240aa7eda1">
+          <dmn:text>if list contains(Choose Ingredients, "Peach") and list contains(Choose Ingredients, "Apricot")  and list contains(Choose Ingredients, "Watermelon") then "Macedonia" else null</dmn:text>
+        </dmn:outputEntry>
+        <dmn:outputEntry id="_8c4ebb00-0558-407f-90ba-0b25fbd20c03">
+          <dmn:text>if list contains(Choose Ingredients, "Peach") and list contains(Choose Ingredients, "Apricot")  and list contains(Choose Ingredients, "Watermelon")  then sum(for i in Ingredient List return if i.name in ["Peach", "Apricot", "Watermelon"] then i.calories else 0) else 0</dmn:text>
+        </dmn:outputEntry>
+      </dmn:rule>
+      <dmn:rule id="_19248e5f-01dc-4d97-bff8-4c52ddbea92e">
+        <dmn:inputEntry id="_61cc5a6a-9d2c-4dbb-b195-df15dbbd7eaf">
+          <dmn:text>0</dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="_b070bab6-9546-44bc-a016-bc1d5d6cd3cc">
+          <dmn:text>"First-Dish"</dmn:text>
+        </dmn:inputEntry>
+        <dmn:outputEntry id="_816989ce-b25a-4e4b-8683-69088b21e2ba">
+          <dmn:text>if list contains(Choose Ingredients, "Pasta") and list contains(Choose Ingredients, "Butter")  and list contains(Choose Ingredients, "Sage") then "Pasta burro e salvia" else null</dmn:text>
+        </dmn:outputEntry>
+        <dmn:outputEntry id="_e064ce16-31f3-49f1-95c4-841ee8830eb8">
+          <dmn:text>if list contains(Choose Ingredients, "Pasta") and list contains(Choose Ingredients, "Butter")  and list contains(Choose Ingredients, "Sage") then sum(for i in Ingredient List return if i.name in ["Pasta", "Butter", "Sage"] then i.calories else 0) else 0</dmn:text>
+        </dmn:outputEntry>
+      </dmn:rule>
+      <dmn:rule id="_7c100485-17c0-4b1a-902d-954d646362d3">
+        <dmn:inputEntry id="_16219fb8-8dda-48ea-93d8-8e019bbe1b54">
+          <dmn:text>0</dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="_aacde24e-5d58-4ba4-8527-1200c42a6d62">
+          <dmn:text>"First-Dish"</dmn:text>
+        </dmn:inputEntry>
+        <dmn:outputEntry id="_e84b32bf-bceb-4c26-a8c2-bf7d2b141d19">
+          <dmn:text>if list contains(Choose Ingredients, "Pasta") and list contains(Choose Ingredients, "Egg")  and list contains(Choose Ingredients, "Pecorino") and list contains(Choose Ingredients, "Pork Jowl") then "Carbonara" else null</dmn:text>
+        </dmn:outputEntry>
+        <dmn:outputEntry id="_59a25fba-8017-429e-b758-840e38ae61d4">
+          <dmn:text>if list contains(Choose Ingredients, "Pasta") and list contains(Choose Ingredients, "Egg")  and list contains(Choose Ingredients, "Pecorino") and list contains(Choose Ingredients, "Pork Jowl") then sum(for i in Ingredient List return if i.name in ["Pasta", "Egg", "Pecorino", "Pork Jowl"] then i.calories else 0) else 0</dmn:text>
+        </dmn:outputEntry>
+      </dmn:rule>
+      <dmn:rule id="_ec0eb8ab-f27d-4fee-bfca-5b62d76d1076">
+        <dmn:inputEntry id="_84105c2f-107b-4af1-9510-98c5826ae6a5">
+          <dmn:text>0</dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="_1aad5884-8ca2-48df-a623-a52299189383">
+          <dmn:text>"Second-Dish"</dmn:text>
+        </dmn:inputEntry>
+        <dmn:outputEntry id="_2d8c6656-6cab-48ed-806f-12f9831dbb32">
+          <dmn:text>if list contains(Choose Ingredients, "Eggplant") and list contains(Choose Ingredients, "Mozzarella")  and list contains(Choose Ingredients, "Parmigiano") and list contains(Choose Ingredients, "Tomato Puree") then "Parmigiana" else null</dmn:text>
+        </dmn:outputEntry>
+        <dmn:outputEntry id="_3701f7bc-856a-4da3-a2c6-69de159250b3">
+          <dmn:text>if list contains(Choose Ingredients, "Eggplant") and list contains(Choose Ingredients, "Mozzarella")  and list contains(Choose Ingredients, "Parmigiano") and list contains(Choose Ingredients, "Tomato Puree") then sum(for i in Ingredient List return if i.name in ["Eggplant", "Mozzarella", "Parmigiano", "Tomato puree"] then i.calories else 0) else 0</dmn:text>
+        </dmn:outputEntry>
+      </dmn:rule>
+    </dmn:decisionTable>
+  </dmn:decision>
+  <dmn:inputData id="_248819ca-75b8-4f94-b6a4-4e7558fcb977" name="isCalorie_Conscious" triso:readOnly="false">
+    <dmn:variable id="_11dbe396-38e2-46cc-9e38-514445365a5f" name="isCalorie_Conscious" typeRef="Calorie_conscious_Level"/>
+  </dmn:inputData>
+  <dmn:decision id="_6d4812cf-784d-49c8-b0c8-50e4cbaf01b7" name="Ingredient List" triso:readOnly="false">
+    <dmn:variable id="_15c8674a-41a2-45ac-b936-7cfa7b1859c7" name="Ingredient List"/>
+    <dmn:literalExpression id="_49720893-907d-414c-a90b-5ba66fd92b7e" triso:descriptionVisible="false" triso:expressionId="_11ae3d0c-e7f3-431e-80f4-6abe0aedcad6">
+      <dmn:text>[
+  {"name": "Pasta", "calories": 180},
+  {"name": "Butter", "calories": 220},
+  {"name": "Sage", "calories": 0},
+  {"name": "Rice", "calories": 160},
+  {"name": "Shrimp", "calories": 45},
+  {"name": "Courgette", "calories": 10},
+  {"name": "Egg", "calories": 60},
+  {"name": "Pecorino", "calories": 190},
+  {"name": "Pork Jowl", "calories": 330},
+  {"name": "Beef Steak", "calories": 120},
+  {"name": "Breadcrumbs", "calories": 160},
+  {"name": "Eggplant", "calories": 10},
+  {"name": "Mozzarella", "calories": 130},
+  {"name": "Parmigiano", "calories": 190},
+  {"name": "Tomato puree", "calories": 10},
+  {"name": "Lettuce", "calories": 10},
+  {"name": "Potato", "calories": 40},
+  {"name": "Peach", "calories": 10},
+  {"name": "Apricot", "calories": 10},
+  {"name": "Watermelon", "calories": 10}
+]</dmn:text>
+    </dmn:literalExpression>
+  </dmn:decision>
+  <dmn:inputData id="_6c2a87c2-8c31-49cd-8ce9-ee2cd26a1a08" name="Course_Type" triso:readOnly="false">
+    <dmn:variable id="_1bb7e3df-5c3e-4e67-a295-2e98723726de" name="Course_Type" typeRef="feel:string"/>
+  </dmn:inputData>
+</dmn:definitions>

@@ -1,0 +1,598 @@
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix kebi2025: <http://www.semanticweb.org/michele.martini/kebi2025#> .
+
+
+### Shape for Restaurant
+
+kebi2025:RestaurantShape a sh:NodeShape ;
+    sh:targetClass kebi2025:Restaurant ;
+    sh:property [
+        sh:path kebi2025:restaurant_hasMenu ;
+        sh:node kebi2025:MenuShape ;
+        sh:minCount 1 ;
+        sh:message "It is impossible that a Restaurant does not have a menu!!" ;
+    ] ;
+    sh:property [
+        sh:path kebi2025:restaurant_hasGuest ;
+        sh:node kebi2025:GuestShape ;
+        sh:minCount 0;
+    ] ;
+.
+
+
+### Shape for Menu
+
+kebi2025:MenuShape a sh:NodeShape ;
+    sh:targetClass kebi2025:Menu ; 
+    sh:property [
+        sh:path kebi2025:menu_containsMeal ;
+        sh:node kebi2025:MealShape ;
+        sh:minCount 1 ;
+    ]
+.
+
+
+### Shape for Guest
+
+kebi2025:GuestShape a sh:NodeShape ;
+    sh:targetClass kebi2025:Guest ;
+    sh:property [
+        sh:path kebi2025:guest_hasAllergy ;
+        sh:node kebi2025:AllergyShape ;
+        sh:minCount 0 ;
+    ] ;
+    sh:property [
+        sh:path kebi2025:guest_hasCategory ;
+        sh:node kebi2025:CategoryShape ;
+        sh:minCount 1;
+    ] ;
+    
+    sh:property [
+        sh:path kebi2025:guest_isAtRiskForFood ;
+        sh:node kebi2025:MealShape ;
+    ] ;
+    sh:property [
+        sh:path kebi2025:guest_hasLevelOfCalorieConscious ;
+        sh:datatype xsd:integer ;
+        sh:minCount 1 ;
+        sh:maxCount 2 ;
+    ] ;
+.
+
+
+### Shape for Food
+
+kebi2025:FoodShape a sh:NodeShape ;
+    sh:targetClass kebi2025:Food ; 
+    sh:property [
+        sh:path kebi2025:food_hasKcal ;
+        sh:datatype xsd:integer ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+    ] ;
+.
+
+
+### Shape for Meal
+
+kebi2025:MealShape a sh:NodeShape ;
+    sh:targetClass kebi2025:Meal ;
+    sh:property [
+        sh:path kebi2025:meal_containsLactoseIntolerance ;
+        sh:node kebi2025:LactoseShape ;
+        sh:minCount 0 ;
+        sh:maxCount 1 ;
+    ] ;
+    sh:property [
+        sh:path kebi2025:meal_containsGlutenIntolerance ;
+        sh:node kebi2025:GlutenShape ;
+        sh:minCount 0 ;
+        sh:maxCount 1 ;
+    ] ;
+    sh:property [
+        sh:path kebi2025:meal_hasCategory ;
+        sh:node kebi2025:CategoryShape ;
+        sh:minCount 0 ;
+    ] ;
+    sh:property [
+        sh:path kebi2025:meal_hasCourse ;
+        sh:node kebi2025:CourseShape ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+    ] ;
+    sh:property [
+        sh:path kebi2025:meal_hasIngredient ;
+        sh:node kebi2025:IngredientShape ;
+        sh:minCount 1 ;
+    ] ;
+.
+
+
+### Shape for Ingredient
+
+kebi2025:IngredientShape a sh:NodeShape ;
+    sh:targetClass kebi2025:Ingredient ;
+.
+
+
+### Shape for Allergy
+
+kebi2025:AllergyShape a sh:NodeShape ;
+    sh:targetClass kebi2025:Allergy ; 
+.
+
+
+### Shape for Lactose
+
+kebi2025:LactoseShape a sh:NodeShape ;
+    sh:targetClass kebi2025:Lactose ;
+.
+
+
+### Shape for Gluten
+
+kebi2025:GlutenShape a sh:NodeShape ;
+    sh:targetClass kebi2025:Gluten ;
+.
+
+
+### Shape for Category
+
+kebi2025:CategoryShape a sh:NodeShape ;
+    sh:targetClass kebi2025:Category ; 
+.
+
+
+### Shape for AnimalOriginProduct
+
+kebi2025:AnimalOriginProductShape a sh:NodeShape ;
+    sh:targetClass kebi2025:AnimalOriginProduct ;
+.
+
+
+### Shape for VegetableOriginProduct
+
+kebi2025:VegetableOriginProductShape a sh:NodeShape ;
+    sh:targetClass kebi2025:VegetableOriginProduct ;
+.
+
+
+### Shape for Dairy
+
+kebi2025:DairyShape a sh:NodeShape ;
+    sh:targetClass kebi2025:Dairy ;
+    sh:property [
+        sh:path kebi2025:dairy_containsLactoseIntolerance ;
+        sh:node kebi2025:LactoseShape ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+    ] ;
+.
+
+
+### Shape for Fruit
+
+kebi2025:FruitShape a sh:NodeShape ;
+    sh:targetClass kebi2025:Fruit ;
+.
+
+
+### Shape for Grain
+
+kebi2025:GrainShape a sh:NodeShape ;
+    sh:targetClass kebi2025:Grain ;
+    sh:property [
+        sh:path kebi2025:grain_containsGlutenIntolerance ;
+        sh:node kebi2025:GlutenShape ;
+        sh:minCount 1;
+        sh:maxCount 1;
+    ] ;
+    
+.
+
+
+### Shape for Meat
+
+kebi2025:MeatShape a sh:NodeShape ;
+    sh:targetClass kebi2025:Meat ;
+.
+
+
+### Shape for Seafood
+
+kebi2025:SeafoodShape a sh:NodeShape ;
+    sh:targetClass kebi2025:Seafood ;
+.
+
+
+### Shape for Seasoning
+
+kebi2025:SeasoningShape a sh:NodeShape ;
+    sh:targetClass kebi2025:Seasoning ;
+.
+
+
+### Shape for Tuber
+
+kebi2025:TuberShape a sh:NodeShape ;
+    sh:targetClass kebi2025:Tuber ;
+.
+
+
+### Shape for Vegetable
+
+kebi2025:VegetableShape a sh:NodeShape ;
+    sh:targetClass kebi2025:Vegetable ;
+.
+
+### Shape for Course
+
+kebi2025:CourseShape a sh:NodeShape ;
+    sh:targetClass kebi2025:Course ;
+.
+
+### Shape for FirstDish
+
+kebi2025:FirstDishShape a sh:NodeShape ;
+    sh:targetClass kebi2025:FirstDish ;
+.
+
+### Shape for SecondDish
+
+kebi2025:SecondDishShape a sh:NodeShape ;
+    sh:targetClass kebi2025:SecondDish ;
+.
+
+
+### Shape for Sidedish
+
+kebi2025:SidedishShape a sh:NodeShape ;
+    sh:targetClass kebi2025:Sidedish ;
+.
+
+
+### Shape for Dessert
+
+kebi2025:DessertShape a sh:NodeShape ;
+    sh:targetClass kebi2025:Dessert ;
+.
+
+
+### Linking Shapes to Classes
+
+kebi2025:RestaurantShape sh:targetClass kebi2025:Restaurant .
+kebi2025:MenuShape sh:targetClass kebi2025:Menu .
+kebi2025:GuestShape sh:targetClass kebi2025:Guest .
+kebi2025:FoodShape sh:targetClass kebi2025:Food .
+
+kebi2025:MealShape sh:targetClass kebi2025:Meal .
+kebi2025:IngredientShape sh:targetClass kebi2025:Ingredient .
+
+kebi2025:AnimalOriginProductShape sh:targetClass kebi2025:AnimalOriginProduct .
+kebi2025:VegetableOriginProductShape sh:targetClass kebi2025:VegetableOriginProduct .
+kebi2025:DairyShape sh:targetClass kebi2025:Dairy .@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix kebi2025: <http://www.semanticweb.org/michele.martini/kebi2025#> .
+
+
+### Shape for Restaurant
+
+kebi2025:RestaurantShape a sh:NodeShape ;
+    sh:targetClass kebi2025:Restaurant ;
+    sh:property [
+        sh:path kebi2025:restaurant_hasMenu ;
+        sh:node kebi2025:MenuShape ;
+        sh:minCount 1 ;
+        sh:message "It is impossible that a Restaurant does not have a menu!!" ;
+    ] ;
+    sh:property [
+        sh:path kebi2025:restaurant_hasGuest ;
+        sh:node kebi2025:GuestShape ;
+        sh:minCount 0;
+    ] ;
+.
+
+
+### Shape for Menu
+
+kebi2025:MenuShape a sh:NodeShape ;
+    sh:targetClass kebi2025:Menu ; 
+    sh:property [
+        sh:path kebi2025:menu_containsMeal ;
+        sh:node kebi2025:MealShape ;
+        sh:minCount 1 ;
+    ]
+.
+
+
+### Shape for Guest
+
+kebi2025:GuestShape a sh:NodeShape ;
+    sh:targetClass kebi2025:Guest ;
+    sh:property [
+        sh:path kebi2025:guest_hasAllergy ;
+        sh:node kebi2025:AllergyShape ;
+        sh:minCount 0 ;
+    ] ;
+    sh:property [
+        sh:path kebi2025:guest_hasCategory ;
+        sh:node kebi2025:CategoryShape ;
+        sh:minCount 1;
+    ] ;
+    
+    sh:property [
+        sh:path kebi2025:guest_isAtRiskForFood ;
+        sh:node kebi2025:MealShape ;
+    ] ;
+    sh:property [
+        sh:path kebi2025:guest_hasLevelOfCalorieConscious ;
+        sh:datatype xsd:integer ;
+        sh:minCount 1 ;
+        sh:maxCount 2 ;
+    ] ;
+.
+
+
+### Shape for Food
+
+kebi2025:FoodShape a sh:NodeShape ;
+    sh:targetClass kebi2025:Food ; 
+    sh:property [
+        sh:path kebi2025:food_hasKcal ;
+        sh:datatype xsd:integer ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+    ] ;
+    sh:property [
+        sh:path kebi2025:food_hasCategory ;
+        sh:node kebi2025:CategoryShape ;
+        sh:minCount 0 ;
+    ] ;
+.
+
+
+### Shape for Meal
+
+kebi2025:MealShape a sh:NodeShape ;
+    sh:targetClass kebi2025:Meal ;
+    sh:property [
+        sh:path kebi2025:meal_containsLactoseIntolerance ;
+        sh:node kebi2025:LactoseShape ;
+        sh:minCount 0 ;
+        sh:maxCount 1 ;
+    ] ;
+    sh:property [
+        sh:path kebi2025:meal_containsGlutenIntolerance ;
+        sh:node kebi2025:GlutenShape ;
+        sh:minCount 0 ;
+        sh:maxCount 1 ;
+    ] ;
+    sh:property [
+        sh:path kebi2025:meal_hasCourse ;
+        sh:node kebi2025:CourseShape ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+    ] ;
+    sh:property [
+        sh:path kebi2025:meal_hasIngredient ;
+        sh:node kebi2025:IngredientShape ;
+        sh:minCount 1 ;
+    ] ;
+.
+
+
+### Shape for Ingredient
+
+kebi2025:IngredientShape a sh:NodeShape ;
+    sh:targetClass kebi2025:Ingredient ;
+.
+
+
+### Shape for Allergy
+
+kebi2025:AllergyShape a sh:NodeShape ;
+    sh:targetClass kebi2025:Allergy ; 
+.
+
+
+### Shape for Lactose
+
+kebi2025:LactoseShape a sh:NodeShape ;
+    sh:targetClass kebi2025:Lactose ;
+.
+
+
+### Shape for Gluten
+
+kebi2025:GlutenShape a sh:NodeShape ;
+    sh:targetClass kebi2025:Gluten ;
+.
+
+
+### Shape for Category
+
+kebi2025:CategoryShape a sh:NodeShape ;
+    sh:targetClass kebi2025:Category ; 
+.
+
+
+### Shape for AnimalOriginProduct
+
+kebi2025:AnimalOriginProductShape a sh:NodeShape ;
+    sh:targetClass kebi2025:AnimalOriginProduct ;
+.
+
+
+### Shape for VegetableOriginProduct
+
+kebi2025:VegetableOriginProductShape a sh:NodeShape ;
+    sh:targetClass kebi2025:VegetableOriginProduct ;
+.
+
+
+### Shape for Dairy
+
+kebi2025:DairyShape a sh:NodeShape ;
+    sh:targetClass kebi2025:Dairy ;
+    sh:property [
+        sh:path kebi2025:dairy_containsLactoseIntolerance ;
+        sh:node kebi2025:LactoseShape ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+    ] ;
+.
+
+
+### Shape for Fruit
+
+kebi2025:FruitShape a sh:NodeShape ;
+    sh:targetClass kebi2025:Fruit ;
+.
+
+
+### Shape for Grain
+
+kebi2025:GrainShape a sh:NodeShape ;
+    sh:targetClass kebi2025:Grain ;
+    sh:property [
+        sh:path kebi2025:grain_containsGlutenIntolerance ;
+        sh:node kebi2025:GlutenShape ;
+        sh:minCount 1;
+        sh:maxCount 1;
+    ] ;
+    
+.
+
+
+### Shape for Meat
+
+kebi2025:MeatShape a sh:NodeShape ;
+    sh:targetClass kebi2025:Meat ;
+.
+
+
+### Shape for Seafood
+
+kebi2025:SeafoodShape a sh:NodeShape ;
+    sh:targetClass kebi2025:Seafood ;
+.
+
+
+### Shape for Seasoning
+
+kebi2025:SeasoningShape a sh:NodeShape ;
+    sh:targetClass kebi2025:Seasoning ;
+.
+
+
+### Shape for Tuber
+
+kebi2025:TuberShape a sh:NodeShape ;
+    sh:targetClass kebi2025:Tuber ;
+.
+
+
+### Shape for Vegetable
+
+kebi2025:VegetableShape a sh:NodeShape ;
+    sh:targetClass kebi2025:Vegetable ;
+.
+
+### Shape for Course
+
+kebi2025:CourseShape a sh:NodeShape ;
+    sh:targetClass kebi2025:Course ;
+.
+
+### Shape for FirstDish
+
+kebi2025:FirstDishShape a sh:NodeShape ;
+    sh:targetClass kebi2025:FirstDish ;
+.
+
+### Shape for SecondDish
+
+kebi2025:SecondDishShape a sh:NodeShape ;
+    sh:targetClass kebi2025:SecondDish ;
+.
+
+
+### Shape for Sidedish
+
+kebi2025:SidedishShape a sh:NodeShape ;
+    sh:targetClass kebi2025:Sidedish ;
+.
+
+
+### Shape for Dessert
+
+kebi2025:DessertShape a sh:NodeShape ;
+    sh:targetClass kebi2025:Dessert ;
+.
+
+
+### Linking Shapes to Classes
+
+kebi2025:RestaurantShape sh:targetClass kebi2025:Restaurant .
+kebi2025:MenuShape sh:targetClass kebi2025:Menu .
+kebi2025:GuestShape sh:targetClass kebi2025:Guest .
+kebi2025:FoodShape sh:targetClass kebi2025:Food .
+
+kebi2025:MealShape sh:targetClass kebi2025:Meal .
+kebi2025:IngredientShape sh:targetClass kebi2025:Ingredient .
+
+kebi2025:AnimalOriginProductShape sh:targetClass kebi2025:AnimalOriginProduct .
+kebi2025:VegetableOriginProductShape sh:targetClass kebi2025:VegetableOriginProduct .
+kebi2025:DairyShape sh:targetClass kebi2025:Dairy .
+kebi2025:FruitShape sh:targetClass kebi2025:Fruit .
+kebi2025:GrainShape sh:targetClass kebi2025:Grain .
+kebi2025:MeatShape sh:targetClass kebi2025:Meat .
+kebi2025:SeafoodShape sh:targetClass kebi2025:Seafood .
+kebi2025:SeasoningShape sh:targetClass kebi2025:Seasoning .
+kebi2025:TuberShape sh:targetClass kebi2025:Tuber .
+
+kebi2025:CategoryShape sh:targetClass kebi2025:Category .
+
+kebi2025:VegetarianShape sh:targetClass kebi2025:Vegetarian .
+kebi2025:CarnivorousShape sh:targetClass kebi2025:Carnivorous .
+
+kebi2025:AllergyShape sh:targetClass kebi2025:Allergy .
+
+kebi2025:LactoseShape sh:targetClass kebi2025:Lactose .
+kebi2025:GlutenShape sh:targetClass kebi2025:Gluten .
+
+kebi2025:CourseShape sh:targetClass kebi2025:Course .
+kebi2025:FirstDishShape sh:targetClass kebi2025:FirstDish .
+kebi2025:SecondDishShape sh:targetClass kebi2025:SecondDish .
+kebi2025:SidedishShape sh:targetClass kebi2025:Sidedish .
+kebi2025:DessertShape sh:targetClass kebi2025:Dessert .
+
+kebi2025:FruitShape sh:targetClass kebi2025:Fruit .
+kebi2025:GrainShape sh:targetClass kebi2025:Grain .
+kebi2025:MeatShape sh:targetClass kebi2025:Meat .
+kebi2025:SeafoodShape sh:targetClass kebi2025:Seafood .
+kebi2025:SeasoningShape sh:targetClass kebi2025:Seasoning .
+kebi2025:TuberShape sh:targetClass kebi2025:Tuber .
+
+kebi2025:CategoryShape sh:targetClass kebi2025:Category .
+
+kebi2025:VegetarianShape sh:targetClass kebi2025:Vegetarian .
+kebi2025:CarnivorousShape sh:targetClass kebi2025:Carnivorous .
+
+kebi2025:AllergyShape sh:targetClass kebi2025:Allergy .
+
+kebi2025:LactoseShape sh:targetClass kebi2025:Lactose .
+kebi2025:GlutenShape sh:targetClass kebi2025:Gluten .
+
+kebi2025:CourseShape sh:targetClass kebi2025:Course .
+kebi2025:FirstDishShape sh:targetClass kebi2025:FirstDish .
+kebi2025:SecondDishShape sh:targetClass kebi2025:SecondDish .
+kebi2025:SidedishShape sh:targetClass kebi2025:Sidedish .
+kebi2025:DessertShape sh:targetClass kebi2025:Dessert .
